@@ -41,14 +41,14 @@ async def gcast(event):
         msg = await event.get_reply_message()
     else:
         return await eor(
-            event, ('**Kiw Jomblo..`"
+            event, ("`**Kiw Jomblo..`"
         )
-    kk = await event.eor("`LagiNgirimBacotanAlaymu")
+    kk = await event.eor("`Lagi Ngirim Bacotan Alaymu`")
     er = 0
     done = 0
     err = ""
     chat_blacklist = udB.get_key("GBLACKLISTS") or []
-    chat_blacklist.append(-1001608847572)  (-1001905557194)
+    chat_blacklist.append(-1001608847572)
     udB.set_key("GBLACKLISTS", chat_blacklist)
     async for x in event.client.iter_dialogs():
         if x.is_group:

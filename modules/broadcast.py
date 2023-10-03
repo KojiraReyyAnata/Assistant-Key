@@ -33,7 +33,7 @@ from . import *
 from ._inline import something
 
 
-@ayra_cmd(pattern="[gG][c][a][s][t]( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[gG][c][a][s][t]( (.*)|$)", fullsudo=True)
 async def gcast(event):
     if xx := event.pattern_match.group(1):
         msg = xx
@@ -41,14 +41,14 @@ async def gcast(event):
         msg = await event.get_reply_message()
     else:
         return await eor(
-            event, "SabarYaBossku..`"
+            event, "Kiw Jomblo..`"
         )
     kk = await event.eor("`LagiNgirimBacotanAlaymu")
     er = 0
     done = 0
     err = ""
     chat_blacklist = udB.get_key("GBLACKLISTS") or []
-    chat_blacklist.append(-1001608847572)
+    chat_blacklist.append(-1001608847572)  (-1001905557194)
     udB.set_key("GBLACKLISTS", chat_blacklist)
     async for x in event.client.iter_dialogs():
         if x.is_group:
@@ -70,7 +70,7 @@ async def gcast(event):
                 except BaseException as h:
                     err += f"• {str(h)}" + "\n"
                     er += 1
-    await kk.edit(f"**Berhasil di {done} obrolan, kesalahan {er} obrolan.**")
+    await kk.edit(f"** Selingkuhan Lo ada {done} Di Kamar, Di Ghosting {er} Asuw.**")
 
 
 @ayra_cmd(pattern="[gG][u][c][a][s][t]( (.*)|$)", fullsudo=False)
@@ -83,7 +83,7 @@ async def gucast(event):
         return await eor(
             event, "`Berikan beberapa teks ke Globally Broadcast atau balas pesan..`"
         )
-    kk = await event.eor("`Sebentar Kalo Limit Jangan Salahin Kynan Ya...`")
+    kk = await event.eor("`Gua Mau Beli Rokok Dulu`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -100,7 +100,7 @@ async def gucast(event):
                     done += 1
                 except BaseException:
                     er += 1
-    await kk.edit(f"Berhasil di {done} obrolan, kesalahan {er} obrolan")
+    await kk.edit(f"Berhasil Melempar Babi {done} DiKandang, Jumlah Babi {er} Dikandang")
 
 
 @ayra_cmd(pattern="addbl")

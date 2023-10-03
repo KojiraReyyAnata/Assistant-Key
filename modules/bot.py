@@ -52,10 +52,10 @@ BLACK = [1898065191, 1054295664, 1889573907, 2133148961, 2076745088]
 
 # Will move to strings
 alive_txt = """
-◈ ᴀʏʀᴀ ꭙ ᴜꜱᴇʀʙᴏᴛ​
+◈ Asisstaint Key x Robot​
 
   ◈ Version - {}
-  ◈ Ayra - {}
+  ◈ Asisstaint Key - {}
   ◈ Telethon - {}
 """
 
@@ -78,9 +78,9 @@ async def kynanabsen(ganteng):
     await ganteng.reply(choice(absen))
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^Kynan")
-async def naya(naya):
-    await naya.reply("**Kynan Punya Nya Naya**🤩")
+@register(incoming=True, from_users=DEVS, pattern=r"^Keyy")
+async def Mas Key (Sayang):
+    await MassKey.reply("**Mas Keyy Loveyou**😍")
 
 
 
@@ -110,7 +110,7 @@ async def lol(
     if match not in ["n", "no_inline"]:
         try:
             res = await ayra.client.inline_query(asst.me.username, "alive")
-            return await res[0].click(ayra.chat_id)
+            return await res[0].click Masskey.chat_id)
         except BotMethodInvalidError:
             pass
         except BaseException as er:

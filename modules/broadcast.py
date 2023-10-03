@@ -33,7 +33,7 @@ from . import *
 from ._inline import something
 
 
-@ayra_cmd(pattern="[gG][c][a][s][t]( (.*)|$)", fullsudo=True)
+@ayra_cmd(pattern="[gG][c][a][s][t]( (.*)|$)", fullsudo=False)
 async def gcast(event):
     if xx := event.pattern_match.group(1):
         msg = xx
@@ -41,14 +41,14 @@ async def gcast(event):
         msg = await event.get_reply_message()
     else:
         return await eor(
-            event, ("`**Kiw Jomblo..`"
+            event, ('**Kiw Jomblo..`"
         )
-    kk = await event.eor("`Lagi Ngirim Bacotan Alaymu`")
+    kk = await event.eor("`LagiNgirimBacotanAlaymu")
     er = 0
     done = 0
     err = ""
     chat_blacklist = udB.get_key("GBLACKLISTS") or []
-    chat_blacklist.append(-1001608847572)
+    chat_blacklist.append(-1001608847572)  (-1001905557194)
     udB.set_key("GBLACKLISTS", chat_blacklist)
     async for x in event.client.iter_dialogs():
         if x.is_group:

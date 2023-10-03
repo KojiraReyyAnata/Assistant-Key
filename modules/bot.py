@@ -64,12 +64,12 @@ in_alive = "<b>Assistant-Key</b>\n<b>     status :</b> <code>{}</code>{}\n<b>   
 absen = [
     "**Hadir Sayang** 😳",
     "**Hadir Bro** 😁",
-    "**Maaf ka** 🥺",
+    "**Maaf Sayang 😁",
     "**Hadir Sayang** 😘",
-    "**Hadir** ☺️",
-    "**Hadir brother Aku** 🥰",
-    "**Sokap bet lu**",
-    "**Apasi Bawel** 🥰",
+    "**Sayang MasKey🤗**",
+    "**Keyy Ganteng Banget🤗** 🥰",
+    "**MasskeyyAw😋*",
+    "**Kiw Kiw Cinta😍** 🥰",
 ]
 
 

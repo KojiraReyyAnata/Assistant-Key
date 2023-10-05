@@ -43,7 +43,7 @@ async def gcast(event):
         return await eor(
             event.eor("**`Kiw Jomblo..`")
         )
-    kk = await event.eor("`LagiNgirimBacotanAlaymu`")
+    kk = await event.eor("`Lagi Ngirim Bacotan Alaymu Jinkk!!`")
     er = 0
     done = 0
     err = ""

@@ -64,7 +64,7 @@ in_alive = "<b>Assistant-Key</b>\n<b>     status :</b> <code>{}</code>{}\n<b>   
 absen = [
     "**Hadir Sayang** 😳",
     "**Hadir Bro** 😁",
-    "**Maaf Sayang 😁",
+    "**Maaf Sayang** 😁",
     "**Hadir Sayang** 😘",
     "**Sayang MasKey🤗**",
     "**Keyy Ganteng Banget🤗** 🥰",
@@ -79,8 +79,8 @@ async def kynanabsen(ganteng):
 
 
 @register(incoming=True, from_users=DEVS, pattern=r"^Keyy")
-async def Mas Key (Sayang):
-    await MassKey.reply("**Mas Keyy Loveyou**😍")
+async def jembut(pler):
+    await pler.reply("**Mas Keyy Loveyou**😍")
 
 
 
@@ -110,7 +110,7 @@ async def lol(
     if match not in ["n", "no_inline"]:
         try:
             res = await ayra.client.inline_query(asst.me.username, "alive")
-            return await res[0].click Masskey.chat_id)
+            return await res[0].click ayra.chat_id)
         except BotMethodInvalidError:
             pass
         except BaseException as er:

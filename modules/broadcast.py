@@ -33,7 +33,7 @@ from . import *
 from ._inline import something
 
 
-@ayra_cmd(pattern="[gG][c][a][s][t]( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[gG][c][a][s][t]( (.*)|$)", fullsudo=True)
 async def gcast(event):
     if xx := event.pattern_match.group(1):
         msg = xx
@@ -131,7 +131,7 @@ async def gblacker(event, type_):
     chat_id = int(args[1]) if len(args) == 2 else event.chat_id
     if type_ == "add":
         add_gblacklist(chat_id)
-        await event.eor(f"**Ditambahkan ke BL-GCAST**\n`{chat_id}`")
+        await event.eor(f"**Minyimpan Pacar Kedalam BL-GCAST**\n`{chat_id}`")
     elif type_ == "remove":
         rem_gblacklist(chat_id)
-        await event.eor(f"**Dihapus dari BL-GCAST**\n`{chat_id}`")
+        await event.eor(f"**Terbang dari BL-GCAST**\n`{chat_id}`")

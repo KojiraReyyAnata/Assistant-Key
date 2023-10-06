@@ -192,7 +192,7 @@ async def _(event):
     x = await event.eor("Ping !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit(f"**Pong !!** `{end}ms`\n**Uptime** - `{uptime}`")
+    await x.edit(f"**Welcome !!** `{end}ms`\n**KingTime** - `{uptime}`")
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -286,8 +286,8 @@ async def inline_alive(
     pic = udB.get_key("ALIVE_PIC")
     remaining_days = None
     status1 = "<b>[founder]</b>" if event.sender_id in DEVS else "<b>[owner]</b>"
-    remaining_days = None
-    status = "premium"
+    remaining_days = True
+    status = "Kasir"
     start = time.time()
     udB.get_key("LOG_CHANNEL")
     await event.client(PingRequest(ping_id=0))

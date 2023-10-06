@@ -122,7 +122,7 @@ async def lol(
     uptime = time_formatter((time.time() - start_time) * 1000)
     if inline:
         parse = "html"
-        status = "premium"
+        status = "Legend Super++"
         als = in_alive.format(
             status,
             status1,

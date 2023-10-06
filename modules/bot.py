@@ -62,8 +62,8 @@ alive_txt = """
 in_alive = "<b>Assistant-Key</b>\n<b>     status :</b> <code>{}</code>{}\n<b>       expired_on :</b> <code>{}</code>\n<b>       dc_id :</b> <code>{}</code>\n<b>       ping_dc :</b> <code>{} ms</code>\n<b>       version :</b> <code>{}</code>\n<b>       assistant :</b> <code>{}</code>\n<b>       uptime :</b> <code>{}</code>"
 
 absen = [
-    "**Hadir Sayang** 😳",
-    "**Hadir Bro** 😁",
+    "**Hadir Sayang** 😝",
+    "**Hadir MyBaby MasKeyy** 😍",
     "**Maaf Sayang** 😁",
     "**Hadir Sayang** 😘",
     "**Sayang MasKey** 🤗",
@@ -92,7 +92,7 @@ async def lol(
     inline = True
     private_chats = 0
     groups = 0
-    remaining_days = None
+    remaining_days = True
     dialog: Dialog
     async for dialog in ayra.client.iter_dialogs():
         entity = dialog.entity

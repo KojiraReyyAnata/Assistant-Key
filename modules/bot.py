@@ -110,7 +110,7 @@ async def lol(
     if match not in ["n", "no_inline"]:
         try:
             res = await ayra.client.inline_query(asst.me.username, "alive")
-            return await res[0](.clickayra.chat_id)
+            return await res[0].click(ayra.chat_id)
         except BotMethodInvalidError:
             pass
         except BaseException as er:

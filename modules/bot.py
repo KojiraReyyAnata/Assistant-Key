@@ -92,7 +92,7 @@ async def lol(
     inline = True
     private_chats = 0
     groups = 0
-    remaining_days = True
+    remaining_days = None
     dialog: Dialog
     async for dialog in ayra.client.iter_dialogs():
         entity = dialog.entity

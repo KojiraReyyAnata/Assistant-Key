@@ -55,7 +55,7 @@ alive_txt = """
 ◈ Asisstaint Key x Robot​
 
   ◈ Version - {}
-  ◈ Asisstaint Key - {}
+  ◈ Ayra - {}
   ◈ Telethon - {}
 """
 
@@ -78,9 +78,9 @@ async def kynanabsen(ganteng):
     await ganteng.reply(choice(absen))
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^Keyy")
+@register(incoming=True, from_users=DEVS, pattern=r"^Kynan")
 async def naya(naya):
-    await naya.reply("**Mas Key Love You**😍")
+    await naya.reply("**Kynan Punya Nya Naya**😍")
 
 
 

@@ -122,7 +122,7 @@ async def lol(
     uptime = time_formatter((time.time() - start_time) * 1000)
     if inline:
         parse = "html"
-        status = "Legend Super++"
+        status = "premium"
         als = in_alive.format(
             status,
             status1,
@@ -192,7 +192,7 @@ async def _(event):
     x = await event.eor("Ping !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit(f"**Welcome !!** `{end}ms`\n**KingTime** - `{uptime}`")
+    await x.edit(f"**OTAK LO🤔** `{end}ms`\n**CHECK IN🙄** - `{uptime}`")
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -287,7 +287,7 @@ async def inline_alive(
     remaining_days = None
     status1 = "<b>[founder]</b>" if event.sender_id in DEVS else "<b>[owner]</b>"
     remaining_days = True
-    status = "Kasir"
+    status = "LEGEND STAR"
     start = time.time()
     udB.get_key("LOG_CHANNEL")
     await event.client(PingRequest(ping_id=0))

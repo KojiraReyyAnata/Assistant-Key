@@ -117,7 +117,7 @@ async def lol(
             LOGS.exception(er)
         inline = True
     pic = udB.get_key("ALIVE_PIC")
-    if isinstance(pic,list)
+    if isinstance(pic,list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
     if inline:

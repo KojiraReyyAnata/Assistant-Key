@@ -275,7 +275,7 @@ async def _(event):
             file = f.read()[-4000:]
         return await event.eor(f"`{file}`")
     else:
-        await def_logs(event, file)
+        await def_logs(event,file)
     await event.try_delete()
 
 

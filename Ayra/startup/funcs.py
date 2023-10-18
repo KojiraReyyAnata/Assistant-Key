@@ -384,7 +384,7 @@ async def customize():
         await asyncio.sleep(1)
         await ayra_bot.send_message(
             "botfather",
-            f"✨ Powerful Assistant-Key Assistant  ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @KynanSupport ✨",
+            f"✨ Powerful Assistant-Key Assistant  ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @KeySupport1 ✨",
         )
         await asyncio.sleep(2)
         await msg.edit("Completed **Auto Customisation** at @BotFather.")

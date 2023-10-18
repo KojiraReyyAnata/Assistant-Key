@@ -70,7 +70,7 @@ async def gcast(event):
                 except BaseException as h:
                     err += f"• {str(h)}" + "\n"
                     er += 1
-    await kk.edit(f"** Gc Anti Mute {done} ✨, Gc Ampas {er} 🗿. **")
+    await kk.edit(f"** Gc Anti Mute {done} Tampan, Gc Ampas {er} Busug Jembut. **")
 
 
 @ayra_cmd(pattern="[gG][u][c][a][s][t]( (.*)|$)", fullsudo=False)
@@ -120,7 +120,7 @@ async def chatbl(event):
     if xx := list_bl(id):
         sd = "**❏ Daftar Blacklist Selingkuhan**\n\n"
         return await event.eor(sd + xx)
-    await event.eor("**Belum ada daftar**")
+    await event.eor("**Belum Pernah Selingkuh**")
 
 
 async def gblacker(event, type_):

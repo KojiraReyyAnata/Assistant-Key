@@ -34,7 +34,7 @@ piic = "https://telegra.ph//file/8675e75ef634fce0b8102.jpg"
 
 buttons = [
     [
-        Button.url(get_string("bot_4"), "t.me/kynansupport"),
+        Button.url(get_string("bot_4"), "t.me/KeySupport1"),
     ]
 ]
 

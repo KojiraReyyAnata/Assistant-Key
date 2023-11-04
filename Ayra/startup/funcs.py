@@ -51,7 +51,7 @@ async def ajg():
     from .. import ayra_bot
     from telethon.errors import rpcerrorlist
     try:
-        await ayra_bot(JoinChannelRequest("kynansupport"))
+        await ayra_bot(JoinChannelRequest("Geninstore"))
         await ayra_bot(JoinChannelRequest("KeySupport1"))
         
     except rpcerrorlist.ChannelPrivateError:

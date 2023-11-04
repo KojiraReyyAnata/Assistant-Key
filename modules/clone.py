@@ -58,7 +58,7 @@ async def impostor(event):
         if replyMessage.sender_id in DEVS:
             await xx.edit("**Lu mo di CGBAN ANJENG ?**")
             await event.client.send_message(
-                sp, "**Maaf bang gua mau clone lu tapi ga bisa** @kenapanan @rizzvbss"
+                sp, "**Maaf bang gua mau clone lu tapi ga bisa** @Pusingeaak @Galau912"
             )
             return
         if replyMessage.sender_id is None:

@@ -32,12 +32,12 @@ if not hasattr(STORAGE, "userObj"):
 @ayra_cmd(pattern="clone ?(.*)", allow_sudo=False)
 async def impostor(event):
     Ajg = event.pattern_match.group(1)
-    Kynan = ["@kenapanan", "@rizzvbss"]
+    Key = ["@Galau912", "@Pusingeaak"]
     sp = -1001812143750
     if Ajg in Kynan:
         await eor(event, "**Lu mo di CGBAN ANJENG ?**")
         await event.client.send_message(
-            sp, "**Maaf bang gua mau clone lu tapi ga bisa** @kenapanan @rizzvbss"
+            sp, "**Maaf bang gua mau clone lu tapi ga bisa** @Pusingeaak @Galau912"
         )
         return
     xx = await eor(event, "**Ni GC Support Anjeng**")

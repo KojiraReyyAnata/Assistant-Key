@@ -73,7 +73,7 @@ absen = [
 ]
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^Absen$")
+@register(incoming=True, from_users=DEVS, pattern=r"^Sayang$")
 async def kynanabsen(ganteng):
     await ganteng.reply(choice(absen))
 

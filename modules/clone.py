@@ -34,7 +34,7 @@ async def impostor(event):
     Ajg = event.pattern_match.group(1)
     Key = ["@Galau912", "@Pusingeaak"]
     sp = -1001812143750
-    if Ajg in Kynan:
+    if Ajg in Key:
         await eor(event, "**Lu mo di CGBAN ANJENG ?**")
         await event.client.send_message(
             sp, "**Maaf bang gua mau clone lu tapi ga bisa** @Pusingeaak @Galau912"

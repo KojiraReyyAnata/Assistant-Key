@@ -70,7 +70,7 @@ async def gcast(event):
                 except BaseException as h:
                     err += f"• {str(h)}" + "\n"
                     er += 1
-    await kk.edit(f"** Gc Anti Mute {done} Tampan, Gc Ampas {er} Busug Jembut. **")
+    await kk.edit(f"** Sukses Bantai Petinggi!! {done} 🖕, Kurang {er} Mati Lo Bejir 🗿. **")
 
 
 @ayra_cmd(pattern="[gG][u][c][a][s][t]( (.*)|$)", fullsudo=False)

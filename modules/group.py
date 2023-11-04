@@ -79,7 +79,7 @@ async def _(e):
                 ),
             )
         except no_admin:
-            return await e.eor("`Saya bukan admin`", time=10)
+            return await e.eor("`Saya bukan petinggi kontol`", time=10)
         link = r.link
     else:
         if isinstance(chat, types.Chat):

@@ -192,7 +192,7 @@ async def _(event):
     x = await event.eor("Ping !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit(f"**OTAK LO🤔** `{end}ms`\n**CHECK IN🙄** - `{uptime}`")
+    await x.edit(f"**PACARKU ✨** `{end}ms`\n**HIDUP🗿** - `{uptime}`")
 
 
 async def get_readable_time(seconds: int) -> str:

@@ -41,7 +41,7 @@ upage = 0
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://github.com/KojiraReyyAnata/Assistant-Key"),
+        Button.url("• Repo •", url="https://github.com/naya1503/Naya-Userbot"),
         Button.url("• Support •", url="t.me/kynansupport"),
     ],
 ]
@@ -49,20 +49,16 @@ SUP_BUTTONS = [
 # --------------------BUTTONS--------------------#
 
 
-@in_pattern("ayra", owner=False)
+@in_pattern("help", owner=False)
 async def inline_handler(event):
-    z = []
-    for x in LIST.values():
-        z.extend(x)
-    text = get_string("inline_4").format(
-        OWNER_NAME,
-        len(HELP.get("Official", [])),
-        len(z),
-    )
+    key = "Official"
+    count = 0
+    text = _strings.get(key, "").format(OWNER_NAME, HNDLR, len(HELP.get(key)))
+
     result = await event.builder.article(
-        title="Naya Help Menu", text=text, buttons=_main_help_menu
+        title="alive", text=text, buttons=page_num(count, key)
     )
-    await event.answer([result], private=False, cache_time=300, gallery=False)
+    await event.answer([result], cache_time=0)
 
 
 @in_pattern("pasta", owner=False)
@@ -115,10 +111,6 @@ _strings = {"Official": helps, "Addons": zhelps, "VCBot": get_string("inline_6")
 @callback(re.compile("uh_(.*)"), owner=False)
 async def help_func(ayra):
     key, count = ayra.data_match.group(1).decode("utf-8").split("_")
-    if key == "VCBot" and HELP.get("VCBot") is None:
-        return await ayra.answer(get_string("help_12"), alert=True)
-    elif key == "Addons" and HELP.get("Addons") is None:
-        return await ayra.answer(get_string("help_13").format(HNDLR), alert=True)
     if "|" in count:
         _, count = count.split("|")
     count = int(count) if count else 0
@@ -146,7 +138,7 @@ async def uptd_plugin(event):
                 help_ += "\n"
     if not help_:
         help_ = f"{file} has no Detailed Help!"
-    help_ += "\n© @Pusingeaak"
+    help_ += "\n© @KynanSupport"
     data = f"uh_{key}_"
     if index is not None:
         data += f"|{index}"
@@ -249,7 +241,7 @@ async def on_plug_in_callback_query_handler(event):
 
 
 def page_num(index, key):
-    rows = udB.get_key("HELP_ROWS") or 4
+    rows = udB.get_key("HELP_ROWS") or 3
     cols = udB.get_key("HELP_COLUMNS") or 2
     loaded = HELP.get(key, [])
     emoji = udB.get_key("EMOJI_IN_HELP") or ""
@@ -265,7 +257,7 @@ def page_num(index, key):
         new_ = fl_[0] if fl_ else []
         index = 0
     if index == 0 and len(fl_) == 1:
-        new_.append([Button.inline("ᴋᴇᴍʙᴀʟɪ", data="open")])
+        new_.append([Button.inline("Kembali", data="open")])
     else:
         new_.append(
             [

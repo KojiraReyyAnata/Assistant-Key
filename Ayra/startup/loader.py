@@ -5,16 +5,13 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 
-import os, subprocess
-from shutil import rmtree
 
 from decouple import config
-from git import Repo
+
 from .. import *
 from ..dB._core import HELP
 from ..loader import Loader
 from . import *
-from .utils import load_addons
 
 
 def _after_load(loader, module, plugin_name=""):
@@ -43,7 +40,6 @@ def _after_load(loader, module, plugin_name=""):
 
 
 def load_other_plugins(addons=None, pmbot=None, manager=None, vcbot=None):
-
     # for official
     _exclude = udB.get_key("EXCLUDE_OFFICIAL") or config("EXCLUDE_OFFICIAL", None)
     _exclude = _exclude.split() if _exclude else []

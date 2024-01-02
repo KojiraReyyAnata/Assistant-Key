@@ -7,7 +7,6 @@
 
 import ast
 import os
-import sys
 
 from .. import run_as_module
 from . import *
@@ -143,7 +142,6 @@ class MongoDB(_BaseDatabase):
         return True
 
 
-
 class RedisDB(_BaseDatabase):
     def __init__(
         self,
@@ -218,6 +216,7 @@ class LocalDB(_BaseDatabase):
 def AyraDB():
     _er = False
     from .. import HOSTED_ON
+
     try:
         if Redis:
             return RedisDB(
@@ -241,5 +240,6 @@ def AyraDB():
     if HOSTED_ON == "termux":
         return LocalDB()
     exit()
+
 
 # --------------------------------------------------------------------------------------------- #

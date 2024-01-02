@@ -11,7 +11,8 @@ import struct
 import sys
 
 from telethon.errors.rpcerrorlist import AuthKeyDuplicatedError
-from telethon.sessions.string import _STRUCT_PREFORMAT, CURRENT_VERSION, StringSession
+from telethon.sessions.string import (_STRUCT_PREFORMAT, CURRENT_VERSION,
+                                      StringSession)
 
 from ..configs import Var
 from . import *
@@ -32,7 +33,7 @@ DC_IPV4 = {
 
 def validate_session(session, logger=LOGS, _exit=True):
     from strings import get_string
-    
+
     if session:
         # Telethon Session
         if session.startswith(CURRENT_VERSION):
@@ -40,7 +41,7 @@ def validate_session(session, logger=LOGS, _exit=True):
                 logger.exception(get_string("py_c1"))
                 sys.exit()
             return StringSession(session)
-            
+
         # Pyrogram Session
         elif len(session) in _PYRO_FORM.keys():
             data_ = struct.unpack(
@@ -75,6 +76,7 @@ def validate_session(session, logger=LOGS, _exit=True):
 
 def vc_connection(udB, ayra_bot):
     from strings import get_string
+
     VC_SESSION = Var.VC_SESSION or udB.get_key("VC_SESSION")
     if VC_SESSION and VC_SESSION != Var.SESSION:
         LOGS.info("Memulai VcClient.")
@@ -82,7 +84,7 @@ def vc_connection(udB, ayra_bot):
             return AyraClient(
                 validate_session(VC_SESSION, _exit=False),
                 log_attempt=False,
-                exit_on_error=False
+                exit_on_error=False,
             )
         except (AuthKeyDuplicatedError, EOFError):
             LOGS.info(get_string("py_c3"))

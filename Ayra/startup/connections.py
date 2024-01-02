@@ -17,6 +17,7 @@ from telethon.sessions.string import (_STRUCT_PREFORMAT, CURRENT_VERSION,
 from ..configs import Var
 from . import *
 from .BaseClient import AyraClient
+from Ayra import *
 
 _PYRO_FORM = {351: ">B?256sI?", 356: ">B?256sQ?", 362: ">BI?256sQ?"}
 

@@ -13,6 +13,10 @@ from .version import __version__
 run_as_module = False
 
 
+from logging import getLogger
+
+LOGS = getLogger("Fandy-Bejir")
+
 class AyConfig:
     lang = "id"
     thumb = "resources/extras/logo.jpg"
@@ -101,8 +105,6 @@ if sys.argv[0] == "-m":
 else:
     print("© Fandy-Bejir ")
 
-    from logging import getLogger
-
-    LOGS = getLogger("Fandy-Bejir")
+    
 
     ayra_bot = asst = udB = vcClient = None

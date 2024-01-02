@@ -21,7 +21,7 @@ from . import append_or_update, owner_and_sudos
 OWNER = ayra_bot.full_name
 
 MSG = f"""
-**Fandy Bejir**
+**Assistant Key**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 **Owner**: [{OWNER}](tg://user?id={ayra_bot.uid})
 **Support**: @skyfand
@@ -32,9 +32,9 @@ IN_BTTS = [
     [
         Button.url(
             "Repository",
-            url="https://github.com/ubotfand/Fandy-Bejir",
+            url="https://github.com/KojiraReyyAnata/Assistant-Key",
         ),
-        Button.url("Support", url="https://t.me/skyfand"),
+        Button.url("Support", url="https://t.me/keysupport1"),
     ]
 ]
 
@@ -92,11 +92,11 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                 res = [
                     await event.builder.article(
                         title="ᴀʏʀᴀ ꭙ ᴜꜱᴇʀʙᴏᴛ​",
-                        url="https://t.me/kynansupport​",
-                        description="© Kynan",
+                        url="https://t.me/keysupport1​",
+                        description="© Assistant-Key",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://graph.org/file/02f9ca4617cec58377b9d.jpg",
+                            "https://graph.org/file/3a496422a06187b24aae3.jpg",
                             0,
                             "image/jpeg",
                             [],
@@ -127,7 +127,7 @@ def in_pattern(pattern=None, owner=False, **kwargs):
                                 title="Unhandled Exception has Occured!",
                                 text=error_text(),
                                 buttons=Button.url(
-                                    "Report", "https://t.me/kynansupport"
+                                    "Report", "https://t.me/keysupport1"
                                 ),
                             )
                         ]

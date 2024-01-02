@@ -19,19 +19,17 @@ from telethon import Button
 from telethon import __version__ as telever
 from telethon import events
 from telethon.errors.common import AlreadyInConversationError
-from telethon.errors.rpcerrorlist import (
-    AuthKeyDuplicatedError,
-    BotInlineDisabledError,
-    BotMethodInvalidError,
-    ChatSendInlineForbiddenError,
-    ChatSendMediaForbiddenError,
-    ChatSendStickersForbiddenError,
-    FloodWaitError,
-    MessageDeleteForbiddenError,
-    MessageIdInvalidError,
-    MessageNotModifiedError,
-    UserIsBotError,
-)
+from telethon.errors.rpcerrorlist import (AuthKeyDuplicatedError,
+                                          BotInlineDisabledError,
+                                          BotMethodInvalidError,
+                                          ChatSendInlineForbiddenError,
+                                          ChatSendMediaForbiddenError,
+                                          ChatSendStickersForbiddenError,
+                                          FloodWaitError,
+                                          MessageDeleteForbiddenError,
+                                          MessageIdInvalidError,
+                                          MessageNotModifiedError,
+                                          UserIsBotError)
 from telethon.events import MessageEdited, NewMessage
 from telethon.utils import get_display_name
 
@@ -58,15 +56,13 @@ def compile_pattern(data, hndlr):
         data = data[1:]
     if data.startswith("."):
         data = data[1:]
-    if hndlr in [" ", "NO_HNDLR"]:
+    if hndlr in [" ", "none"]:
         # No Hndlr Feature
         return re.compile("^" + data)
     return re.compile("\\" + hndlr + data)
 
 
-def ayra_cmd(
-    pattern=None, manager=False, ayra_bot=ayra_bot, asst=asst, **kwargs
-):
+def ayra_cmd(pattern=None, manager=False, ayra_bot=ayra_bot, asst=asst, **kwargs):
     owner_only = kwargs.get("owner_only", False)
     groups_only = kwargs.get("groups_only", False)
     admins_only = kwargs.get("admins_only", False)
@@ -135,7 +131,7 @@ def ayra_cmd(
                     ay,
                     get_string("py_d7"),
                 )
-            except (BotInlineDisabledError) as er:
+            except BotInlineDisabledError as er:
                 return await eod(ay, f"`{er}`")
             except (
                 MessageIdInvalidError,
@@ -147,7 +143,7 @@ def ayra_cmd(
                 LOGS.exception(er)
                 await asst.send_message(
                     udB.get_key("LOG_CHANNEL"),
-                    "Session String expired, create new session from 👇",
+                    "Session String expired, create new session from",
                     buttons=[
                         Button.url("Bot", "t.me/NayaStringBot?start="),
                     ],
@@ -161,7 +157,7 @@ def ayra_cmd(
                 LOGS.exception(e)
                 date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
                 naam = get_display_name(chat)
-                ftext = "**Ayra Client Error:** `Forward this to` @kynansupport\n\n"
+                ftext = "**Fandy Client Error:** `Forward this to` @skyfand\n\n"
                 ftext += "**Ayra Version:** `" + str(pyver)
                 ftext += "`\n**Userbot Version:** `" + str(ayra_ver)
                 ftext += "`\n**Telethon Version:** `" + str(telever)
@@ -191,7 +187,7 @@ def ayra_cmd(
                         error_log = await asst.send_file(
                             udB.get_key("LOG_CHANNEL"),
                             file,
-                            caption="**Ayra Client Error:** `Forward this to` @kynansupport\n\n",
+                            caption="**Fandy Client Error:** `Forward this to` @skyfand\n\n",
                         )
                 else:
                     error_log = await asst.send_message(

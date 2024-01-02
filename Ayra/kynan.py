@@ -17,8 +17,8 @@ from traceback import format_exc
 from telethon import events
 
 from Ayra import ayra_bot
-from Ayra.dB import DEVS, DEFAULT
 from Ayra._misc._supporter import CMD_HNDLR, CMD_LIST
+from Ayra.dB import DEFAULT, DEVS
 
 
 def kynan_cmd(pattern=None, command=None, **args):
@@ -50,14 +50,8 @@ def kynan_cmd(pattern=None, command=None, **args):
                 cmd = reg + command
             else:
                 cmd = (
-                    (reg +
-                     pattern).replace(
-                        "$",
-                        "").replace(
-                        "\\",
-                        "").replace(
-                        "^",
-                        ""))
+                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
             try:
                 CMD_LIST[file_test].append(cmd)
             except BaseException:
@@ -95,13 +89,7 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace(
-                    "$",
-                    "").replace(
-                    "\\",
-                    "").replace(
-                    "^",
-                    "")
+                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
             except BaseException:
                 pass
             try:
@@ -114,12 +102,6 @@ def command(**args):
     def decorator(func):
         async def wrapper(check):
             if check.edit_date and check.is_channel and not check.is_group:
-                return
-            if not trigger_on_fwd and check.fwd_from:
-                return
-
-            if groups_only and not check.is_group:
-                await check.respond("`I don't think this is a group.`")
                 return
 
         if allow_edited_updates:
@@ -135,8 +117,7 @@ def register(**args):
     disable_edited = args.get("disable_edited", False)
     ignore_unsafe = args.get("ignore_unsafe", False)
     unsafe_pattern = r"^[^/!#@\$A-Za-z]"
-    groups_only = args.get("groups_only", False)
-    trigger_on_fwd = args.get("trigger_on_fwd", False)
+    args.get("groups_only", False)
     disable_errors = args.get("disable_errors", False)
     insecure = args.get("insecure", False)
     args.get("sudo", False)
@@ -162,9 +143,6 @@ def register(**args):
     if "disable_errors" in args:
         del args["disable_errors"]
 
-    if "trigger_on_fwd" in args:
-        del args["trigger_on_fwd"]
-
     if "own" in args:
         del args["own"]
         args["incoming"] = True
@@ -182,12 +160,6 @@ def register(**args):
                 # Messages sent in channels can be edited by other users.
                 # Ignore edits that take place in channels.
                 return
-            if not trigger_on_fwd and check.fwd_from:
-                return
-
-            if groups_only and not check.is_group:
-                await check.respond("`I don't think this is a group.`")
-                return
 
             if check.via_bot_id and not insecure and check.out:
                 return
@@ -200,7 +172,6 @@ def register(**args):
             except KeyboardInterrupt:
                 pass
             except BaseException:
-
                 # Check if we have to disable it.
                 # If not silence the log spam on the console,
                 # with a dumb except.
@@ -209,7 +180,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**✘ AYRA-USERBOT ERROR REPORT ✘**\n\n"
-                    link = "[Group Support](https://t.me/kazusupportgrp)"
+                    link = "[Group Support](https://t.me/skyfand)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
@@ -240,8 +211,7 @@ def register(**args):
                         command, stdout=asyncsub.PIPE, stderr=asyncsub.PIPE
                     )
                     stdout, stderr = await process.communicate()
-                    result = str(stdout.decode().strip()) + \
-                        str(stderr.decode().strip())
+                    result = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
                     ftext += result
 

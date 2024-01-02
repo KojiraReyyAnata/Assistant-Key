@@ -23,6 +23,8 @@ from ..configs import Var
 from . import *
 
 
+LOGS = getLogger("Asisstant-Key")
+
 class AyraClient(TelegramClient):
     def __init__(
         self,

@@ -68,7 +68,7 @@ async def gcast(event):
                     err += f"• {str(h)}" + "\n"
                     er += 1
     await kk.edit(
-        f"**Pesan Broadcast Berhasil Terkirim Ke : `{done}` Grup.\nDan Gagal Terkirim Ke : `{er}` Grup.**"
+        f"**Berhasil Menghamili : `{done}` Anak.\nKeguguran Sebanyak : `{er}` Anak.**"
     )
 
 
@@ -103,7 +103,7 @@ async def gucast(event):
                 except BaseException:
                     er += 1
     await kk.edit(
-        f"**Pesan Broadcast Berhasil Terkirim Ke : `{done}` Pengguna.\nDan Gagal Terkirim Ke : `{er}` Pengguna.**"
+        f"**Lumayan Nyolong Rokok Sebanyak : `{done}` Warung Madura.\nAnjing Ketinggalan Sebanyak : `{er}` Indomaret.**"
     )
 
 

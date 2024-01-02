@@ -7,7 +7,8 @@
 
 from asyncio import sleep
 
-from telethon.errors import MessageDeleteForbiddenError, MessageNotModifiedError
+from telethon.errors import (MessageDeleteForbiddenError,
+                             MessageNotModifiedError)
 from telethon.tl.custom import Message
 from telethon.tl.types import MessageService
 
@@ -52,7 +53,7 @@ async def eod(event, text=None, **kwargs):
 async def _try_delete(event):
     try:
         return await event.delete()
-    except (MessageDeleteForbiddenError):
+    except MessageDeleteForbiddenError:
         pass
     except BaseException as er:
         from . import LOGS

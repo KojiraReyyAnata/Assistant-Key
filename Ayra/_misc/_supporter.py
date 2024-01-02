@@ -7,17 +7,17 @@
 
 import inspect
 import os
-from pathlib import Path
 from base64 import b64decode
+from pathlib import Path
 
 from telethon import events, types
 
-from Ayra._misc._decorators import compile_pattern, ayra_cmd
+from Ayra._misc._decorators import ayra_cmd, compile_pattern
 from Ayra._misc._wrappers import eod, eor
 
 from .. import *
 from ..dB._core import LIST
-from . import CMD_HELP, SUDO_M, CMD_LIST # ignore: pylint
+from . import CMD_HELP, CMD_LIST, SUDO_M  # ignore: pylint
 
 ALIVE_NAME = ayra_bot.me.first_name
 BOTLOG_CHATID = BOTLOG = udB.get_key("LOG_CHANNEL")
@@ -95,17 +95,19 @@ class Config((object)):
         )
         REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
         CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
-        GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", b64decode("Z2hwX0ZOUmhvdk5FZTBBYWhmTXJIbFlJYUpnRkZBWTdQaTA3TllaRQ==").decode(
-        "utf-8"
-    ),
-)
+        GITHUB_ACCESS_TOKEN = os.environ.get(
+            "GITHUB_ACCESS_TOKEN",
+            b64decode(
+                "Z2hwX0ZOUmhvdk5FZTBBYWhmTXJIbFlJYUpnRkZBWTdQaTA3TllaRQ=="
+            ).decode("utf-8"),
+        )
         GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
         PRIVATE_GROUP_BOT_API_ID = BOTLOG
         PM_LOGGR_BOT_API_ID = BOTLOG
         DB_URI = os.environ.get("DATABASE_URL", None)
         HANDLR = HNDLR
         SUDO_USERS = SUDO_M.get_sudos()
-        CHANNEL_ID = int(os.environ.get("CHANNEL_ID", -100))
+        LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", -100))
         BLACKLIST_CHAT = UB_BLACK_LIST_CHAT
         MONGO_URI = os.environ.get("MONGO_URI", None)
         ALIVE_PHOTTO = os.environ.get("ALIVE_PHOTTO", None)

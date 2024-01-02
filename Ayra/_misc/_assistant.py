@@ -14,16 +14,17 @@ from telethon.errors import QueryIdInvalidError
 from telethon.events import CallbackQuery, InlineQuery, NewMessage
 from telethon.tl.types import InputWebDocument
 
-from .. import LOGS, asst, udB, ayra_bot
+from .. import LOGS, asst, ayra_bot, udB
 from ..fns.admins import admin_check
 from . import append_or_update, owner_and_sudos
 
 OWNER = ayra_bot.full_name
 
 MSG = f"""
-**Assistant-Key**
+**Fandy Bejir**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 **Owner**: [{OWNER}](tg://user?id={ayra_bot.uid})
+**Support**: @skyfand
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
@@ -31,9 +32,9 @@ IN_BTTS = [
     [
         Button.url(
             "Repository",
-            url="https://github.com/KojiraReyyAnata/Assistant-Key",
+            url="https://github.com/ubotfand/Fandy-Bejir",
         ),
-        Button.url("Support", url="https://t.me/kynansupport"),
+        Button.url("Support", url="https://t.me/skyfand"),
     ]
 ]
 

@@ -21,7 +21,7 @@ from telethon.errors import (
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from ..configs import Var
 from . import *
-
+from Ayra import *
 
 LOGS = getLogger("Asisstant-Key")
 

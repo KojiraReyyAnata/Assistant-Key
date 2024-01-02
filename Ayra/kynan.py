@@ -180,7 +180,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**✘ AYRA-USERBOT ERROR REPORT ✘**\n\n"
-                    link = "[Group Support](https://t.me/skyfand)"
+                    link = "[Group Support](https://t.me/keysupport1)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 

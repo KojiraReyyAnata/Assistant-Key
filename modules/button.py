@@ -1,3 +1,10 @@
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
+#
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+
 import os
 import re
 
@@ -40,6 +47,7 @@ def create_tl_btn(button: list):
 
 def format_btn(buttons: list):
     txt = ""
+    buttons = []
     for i in buttons:
         a = 0
         for i in i:
@@ -50,10 +58,10 @@ def format_btn(buttons: list):
                 else:
                     txt += f"[{i.button.text} | {i.button.url}]"
     _, btn = get_msg_button(txt)
-    return button
+    return buttons
 
 
-@ayra_cmd(pattern="button")
+@ayra_cmd(pattern="[Bb][u][t][t][o][n]")
 async def butt(event):
     media, wut, text = None, None, None
     if event.reply_to:

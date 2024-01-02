@@ -26,7 +26,7 @@ from time import sleep
 from . import *
 
 
-@ayra_cmd(pattern="sadboy(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ss][a][d][b][o][y]$")
 async def _(event):
     xx = await eor(event, "`Pertama-tama kamu cantik`")
     sleep(2)
@@ -35,7 +35,7 @@ async def _(event):
     await xx.edit("`Dan yang terakhir adalah kamu bukan jodohku`")
 
 
-@ayra_cmd(pattern="punten(?: |$)(.*)")
+@ayra_cmd(pattern="^[Pp][u][n][t][e][n]$")
 async def _(event):
     await eor(
         event,
@@ -50,7 +50,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="pantau(?: |$)(.*)")
+@ayra_cmd(pattern="^[Pp][a][n][t][a][u]$")
 async def _(event):
     await eor(
         event,
@@ -65,7 +65,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="frog(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ff][r][o][g]$")
 async def _(event):
     await eor(
         event,
@@ -87,7 +87,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="dfrog(?: |$)(.*)")
+@ayra_cmd(pattern="^[Dd][f][r][o][g]$")
 async def _(event):
     await eor(
         event,
@@ -109,7 +109,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="strump(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ss][t][r][u][m][p]$")
 async def _(event):
     await eor(
         event,
@@ -131,7 +131,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="scina(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ss][c][i][n][a]$")
 async def _(event):
     await eor(
         event,
@@ -154,7 +154,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="wlcm(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ww][l][c][m]$")
 async def _(event):
     await eor(
         event,
@@ -171,7 +171,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="gta(?: |$)(.*)")
+@ayra_cmd(pattern="^[Gg][t][a]$")
 async def _(event):
     await eor(
         event,
@@ -189,7 +189,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="sthink(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ss][t][h][i][n][k]$")
 async def _(event):
     await eor(
         event,

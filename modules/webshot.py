@@ -1,13 +1,13 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Webshot**
 
-๏ **Perintah:** `ss` <link>
+๏ **Perintah:** `webshot` <link>
 ◉ **Keterangan:** Dapatkan screenshot dari link tersebut
 """
 
@@ -15,7 +15,7 @@
 from . import *
 
 
-@ayra_cmd(pattern="ss(?:\\s+(.*))?")
+@ayra_cmd(pattern="[wW]ebshot(?:\\s+(.*))?")
 async def webshot(e):
     ajg = await e.eor("`Processing...`")
     try:

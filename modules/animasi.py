@@ -23,7 +23,7 @@
 from . import *
 
 
-@ayra_cmd(pattern="skull(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ss][Kk][Uu][Ll][Ll](?: |$)(.*)")
 async def _(event):
     await event.edit(
         "███████████████████████████\n"
@@ -48,7 +48,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="wlc(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ww][Ll][Cc](?: |$)(.*)")
 async def _(event):
     await event.edit(
         "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
@@ -59,7 +59,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="klb(?: |$)(.*)")
+@ayra_cmd(pattern="^[Kk][Ll][Bb](?: |$)(.*)")
 async def _(event):
     await event.edit(
         "   ╚⊙ ⊙╝..\n"
@@ -86,7 +86,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="fucek(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ff][Uu][Cc][Ee][Kk](?: |$)(.*)")
 async def _(event):
     await event.edit(
         "░░░░░░░░░░░░░░░▄▄░░░░░░░░░░░\n"

@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Profile**
 
@@ -32,7 +32,7 @@ TMP_DOWNLOAD_DIRECTORY = "resources/downloads/"
 # bio changer
 
 
-@ayra_cmd(pattern="(S|s)etbio( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Ss]etbio( (.*)|$)", fullsudo=False)
 async def _(ayra):
     ok = await ayra.eor("...")
     set = ayra.pattern_match.group(1).strip()
@@ -46,7 +46,7 @@ async def _(ayra):
 # name changer
 
 
-@ayra_cmd(pattern="(S|s)etname ?((.|//)*)", fullsudo=False)
+@ayra_cmd(pattern="[Ss]etname ?((.|//)*)", fullsudo=False)
 async def _(ayra):
     ok = await ayra.eor("...")
     names = ayra.pattern_match.group(1).strip()
@@ -69,7 +69,7 @@ async def _(ayra):
 # profile pic
 
 
-@ayra_cmd(pattern="(s|S)etfp$", fullsudo=False)
+@ayra_cmd(pattern="[sS]etfp$", fullsudo=False)
 async def _(ayra):
     if not ayra.is_reply:
         return await ayra.eor("`Balas ke Media..`", time=5)
@@ -91,7 +91,7 @@ async def _(ayra):
 # delete profile pic(s)
 
 
-@ayra_cmd(pattern="(D|d)elfp( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[dD]elfp( (.*)|$)", fullsudo=False)
 async def remove_profilepic(delpfp):
     ok = await eor(delpfp, "`...`")
     group = delpfp.text[8:]
@@ -106,7 +106,7 @@ async def remove_profilepic(delpfp):
     await eod(ok, f"`Berhasil dihapus {len(pfplist)} gambar profil(s).`")
 
 
-@ayra_cmd(pattern="(p|P)oto( (.*)|$)")
+@ayra_cmd(pattern="[pP]oto( (.*)|$)")
 async def gpoto(e):
     ayra = e.pattern_match.group(1).strip()
     a = await e.eor(get_string("com_1"))

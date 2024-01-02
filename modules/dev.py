@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 
 import inspect
@@ -13,7 +13,6 @@ from io import BytesIO, StringIO
 from os import remove
 from pprint import pprint
 
-from Ayra import _ignore_eval
 from telethon.utils import get_display_name
 
 from . import *
@@ -39,7 +38,7 @@ fn = functions
 
 
 @ayra_cmd(
-    pattern="(S|s)ysinfo$",
+    pattern="^[Ss][Yy][Ss][Ii][Nn][Ff][Oo]$",
 )
 async def _(e):
     xx = await e.eor(get_string("com_1"))
@@ -54,7 +53,7 @@ async def _(e):
     remove("neo.txt")
 
 
-@ayra_cmd(pattern="(B|b)ash", fullsudo=False, only_devs=False)
+@ayra_cmd(pattern="^[Bb][Aa][sS][hH]", fullsudo=False, only_devs=False)
 async def _(event):
     carb, yamlf = None, False
     try:
@@ -70,7 +69,7 @@ async def _(event):
     OUT = f"**☞ BASH\n\n• COMMAND:**\n`{cmd}` \n\n"
     err, out = "", ""
     if stderr:
-        err = f"**• ERROR:** \n`{stderr}`\n\n"
+        err = f"**• LOGS:** \n`{stderr}`\n\n"
     if stdout:
         if (carb or udB.get_key("CARBON_ON_BASH")) and (
             event.is_private
@@ -146,7 +145,7 @@ def _parse_eval(value=None):
     return str(value)
 
 
-@ayra_cmd(pattern="(Eval|eval|ev)", fullsudo=False, only_devs=False)
+@ayra_cmd(pattern="^[Ee][vV][Aa][lL]", fullsudo=False, only_devs=False)
 @register(incoming=True, from_users=DEVS, pattern=r"^Eval(?: |$)(.*)")
 async def _(event):
     try:
@@ -185,7 +184,7 @@ async def _(event):
             # Consider it as Code Error, and move on to be shown ahead.
             pass
     reply_to_id = event.reply_to_msg_id or event
-    
+
     old_stderr = sys.stderr
     old_stdout = sys.stdout
     redirected_output = sys.stdout = StringIO()

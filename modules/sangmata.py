@@ -30,7 +30,7 @@ from . import ayra_cmd, get_string
 
 
 @ayra_cmd(
-    pattern="id( (.*)|$)",
+    pattern="[Ii]d( (.*)|$)",
     manager=True,
 )
 async def _(event):
@@ -55,7 +55,7 @@ async def _(event):
 
 
 @ayra_cmd(
-    pattern="sg( (.*)|$)",
+    pattern="[Ss]g( (.*)|$)",
 )
 async def lastname(steal):
     mat = steal.pattern_match.group(1).strip()

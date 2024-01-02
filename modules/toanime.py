@@ -22,7 +22,7 @@ from telethon.tl.types import *
 from . import *
 
 
-@ayra_cmd(pattern="toanime")
+@ayra_cmd(pattern="[Tt][o][a][n][i][m][e]")
 async def convert_image(event):
     if not event.reply_to_msg_id:
         return await event.eor("**Mohon Balas Ke Foto**")

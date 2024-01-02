@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk PM Permit**
 
@@ -113,7 +113,7 @@ async def delete_pm_warn_msgs(chat: int):
 if udB.get_key("PMLOG"):
 
     @ayra_cmd(
-        pattern="(l|L)ogpm$",
+        pattern="[lL]ogpm$",
     )
     async def _(e):
         if not e.is_private:
@@ -125,7 +125,7 @@ if udB.get_key("PMLOG"):
         return await e.eor("`Now I Will log msgs from here.`", time=3)
 
     @ayra_cmd(
-        pattern="(n|N)ologpm$",
+        pattern="[nN]ologpm$",
     )
     async def _(e):
         if not e.is_private:
@@ -481,7 +481,7 @@ if udB.get_key("PMSETTING"):
             )
 
 
-@ayra_cmd(pattern="(B|b)lock( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Bb]lock( (.*)|$)", fullsudo=False)
 async def blockpm(block):
     match = block.pattern_match.group(1).strip()
     if block.reply_to_msg_id:
@@ -524,7 +524,7 @@ async def blockpm(block):
         pass
 
 
-@ayra_cmd(pattern="unblock( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Uu]nblock( (.*)|$)", fullsudo=False)
 async def unblockpm(event):
     match = event.pattern_match.group(1).strip()
     reply = await event.get_reply_message()
@@ -586,7 +586,7 @@ async def unblockpm(event):
         pass
 
 
-@ayra_cmd(pattern="(L|l)istok", owner=True)
+@ayra_cmd(pattern="[Ll]istok", owner=True)
 async def list_approved(event):
     xx = await event.eor(get_string("com_1"))
     all = get_approved()

@@ -47,7 +47,7 @@ def user_list(l, n):
 
 
 @ayra_cmd(
-    pattern="(s|S)topvc$",
+    pattern="[Ss][t][o][p][v][c]$",
     admins_only=True,
     groups_only=True,
 )
@@ -57,13 +57,13 @@ async def _(e):
         ajg = await e.eor("`Processing...`")
         await e.client(stopvc(await get_call(e)))
         await asyncio.sleep(1)
-        await ajg.edit(f"**❏ Obrolan Suara Diakhiri**\n**└ Chat ID** : `{chat}`")
+        await ajg.edit(f"**• Obrolan Suara Diakhiri**\n**- Chat ID** : `{chat}`")
     except Exception as ex:
         await ajg.edit(f"`{ex}`")
 
 
 @ayra_cmd(
-    pattern="(s|S)tartvc$",
+    pattern="[sS][t][a][r][t][v][c]$",
     admins_only=True,
     groups_only=True,
 )
@@ -73,7 +73,7 @@ async def _(e):
         ajg = await e.eor("`Processing...`")
         await e.client(startvc(e.chat_id))
         await asyncio.sleep(1)
-        await ajg.edit(f"**❏ Obrolan Suara Aktif**\n**└ Chat ID** : `{chat}`")
+        await ajg.edit(f"**• Obrolan Suara Aktif**\n**- Chat ID** : `{chat}`")
     except Exception as ex:
         await ajg.edit(f"`{ex}`")
 
@@ -94,7 +94,7 @@ async def _(event):
         await event.eor(f"Terjadi kesalahan: {ex}")
 
 
-@ayra_cmd(pattern="joinvc(?: |$)(.*)")
+@ayra_cmd(pattern="[Jj][o][i][n][v][c](?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^Jvcs(?: |$)(.*)")
 async def join_(event):
     if len(event.text.split()) > 1:
@@ -109,14 +109,14 @@ async def join_(event):
     if not Nan.group_call.is_connected:
         await Nan.group_call.join(chat)
         await asyncio.sleep(1)
-        await event.eor(f"❏ **Berhasil Bergabung Voice Chat**\n└ **Chat ID:** `{chat}`")
+        await event.eor(f"• **Berhasil Bergabung Voice Chat**\n- **Chat ID:** `{chat}`")
         await asyncio.sleep(1)
         await Nan.group_call.set_is_mute(False)
         await asyncio.sleep(1)
         await Nan.group_call.set_is_mute(True)
 
 
-@ayra_cmd(pattern="leavevc(?: |$)(.*)")
+@ayra_cmd(pattern="[Ll][e][a][v][e][v][c](?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^Lvcs(?: |$)(.*)")
 async def leaver(event):
     if len(event.text.split()) > 1:
@@ -130,7 +130,7 @@ async def leaver(event):
     jing = Player(chat)
     await jing.group_call.leave()
     await asyncio.sleep(1)
-    await event.eor(f"❏ **Berhasil Turun Voice Chat**\n└ **Chat ID:** `{chat}`")
+    await event.eor(f"• **Berhasil Turun Voice Chat**\n- **Chat ID:** `{chat}`")
     if CLIENTS.get(chat):
         del CLIENTS[chat]
     if VIDEO_ON.get(chat):

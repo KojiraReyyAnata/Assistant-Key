@@ -14,39 +14,47 @@
 Ini akan menerjemahkan pesan ke Bahasa Indonesia.
 """
 
-try:
-    import cv2
-except ImportError:
-    cv2 = None
 
-try:
-    from htmlwebshot import WebShot
-except ImportError:
-    WebShot = None
+from contextlib import suppress
 
-from Ayra.fns.tools import translate
+from gpytranslate import Translator
 
-from . import HNDLR, LOGS, ayra_cmd, eor
+from . import ayra_cmd
+from ._trans import *
+
+BAHASA = ["en", "id", "fr", "es", "de", "it", "ja", "ko", "zh"]
 
 
-@ayra_cmd(pattern=r"^[tT][rR](?: |$)(.*)", manager=False)
-async def _(event):
-    input = event.pattern_match.group(1).strip().split(maxsplit=1)
-    txt = input[1] if len(input) > 1 else None
-    if input:
-        input = input[0]
-    if txt:
-        text = txt
-    elif event.is_reply:
-        previous_message = await event.get_reply_message()
-        text = previous_message.message
+@ayra_cmd(pattern=r"^[Tt][r](?: |$)(.*)", manager=False)
+async def _(jink):
+    match = jink.pattern_match.group(1)
+    itu = match.split(" ")
+    if itu[0] in BAHASA:
+        is_lang, lang = True, itu[0]
     else:
-        return await eor(event, f"`{HNDLR}tr <kode bahasa> <balasan pesan>`", time=5)
-    lan = input or "id"
+        is_lang, lang = False, BAHASA
+    if jink.is_reply:
+        kata = (await jink.get_reply_message()).message
+        if is_lang:
+            with suppress(BaseException):
+                kata = match.split(maxsplit=1)[1]
+    else:
+        kata = match
+        if is_lang:
+            with suppress(BaseException):
+                kata = match.split(maxsplit=1)[1]
+    if not kata:
+        await jink.eor("`Reply to text message or provide a text!`", time=5)
+        return
     try:
-        tt = translate(text, lang_tgt=lan)
-        output_str = f"**TERJEMAHAN** dari {lan}\n{tt}"
-        await event.eor(output_str)
-    except Exception as exc:
-        LOGS.exception(exc)
-        await event.eor(str(exc), time=5)
+        text = strip_format(strip_emoji(kata))
+        translator = Translator()
+        translation = await translator(text, targetlang=lang)
+        tr = "**Detected:** `{}`\n**Translated:** `{}`\n\n```{}```".format(
+            await translator.detect(translation.orig),
+            await translator.detect(translation.text),
+            translation.text,
+        )
+        await jink.eor(tr)
+    except Exception as err:
+        await jink.eor(f"Error {err}")

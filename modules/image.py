@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Image**
 
@@ -69,7 +69,7 @@ from telethon.errors.rpcerrorlist import (ChatSendMediaForbiddenError,
 from . import *
 
 
-@ayra_cmd(pattern="(C|c)olor$")
+@ayra_cmd(pattern="[Cc]olor$")
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and reply.media):
@@ -228,7 +228,7 @@ async def ayra(event):
     os.remove(ayra)
 
 
-@ayra_cmd(pattern="(b|B)order( (.*)|$)")
+@ayra_cmd(pattern="[bB]order( (.*)|$)")
 async def ok(event):
     hm = await event.get_reply_message()
     if not (hm and (hm.photo or hm.sticker)):
@@ -256,7 +256,7 @@ async def ok(event):
     await event.delete()
 
 
-@ayra_cmd(pattern="(P|p)ixelator( (.*)|$)")
+@ayra_cmd(pattern="[Pp]ixelator( (.*)|$)")
 async def pixelator(event):
     reply_message = await event.get_reply_message()
     if not (reply_message and reply_message.photo):
@@ -281,7 +281,7 @@ async def pixelator(event):
 
 
 @ayra_cmd(
-    pattern="(R|r)mbg($| (.*))",
+    pattern="[Rr]mbg($| (.*))",
 )
 async def abs_rmbg(event):
     RMBG_API = udB.get_key("RMBG_API")

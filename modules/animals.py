@@ -19,7 +19,7 @@ import requests
 from . import *
 
 
-@ayra_cmd(pattern="shibe$")
+@ayra_cmd(pattern="^[Ss][Hh][Ii][Bb][Ee]$")
 async def shibe(event):
     xx = await event.eor("`Processing...`")
     response = requests.get("https://shibe.online/api/shibes").json()
@@ -30,7 +30,7 @@ async def shibe(event):
     await xx.delete()
 
 
-@ayra_cmd(pattern="cat$")
+@ayra_cmd(pattern="^[Cc][Aa][Tt]$")
 async def cats(event):
     xx = await event.eor("`Processing...`")
     response = requests.get("https://shibe.online/api/cats").json()

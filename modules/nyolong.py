@@ -14,27 +14,9 @@
 ◉ **Keterangan:** Curi pap timer.
 """
 
-from telethon.errors.rpcerrorlist import ChatForwardsRestrictedError, UserBotError, MediaEmptyError
-from telethon.events import NewMessage
-from telethon.tl.custom import Dialog
-from telethon.tl.functions.channels import (
-    GetAdminedPublicChannelsRequest,
-    InviteToChannelRequest,
-    LeaveChannelRequest,
-)
-from telethon.tl.functions.contacts import GetBlockedRequest
-from telethon.tl.functions.messages import AddChatUserRequest, GetAllStickersRequest
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import (
-    Channel,
-    Chat,
-    InputMediaPoll,
-    Poll,
-    PollAnswer,
-    TLObject,
-    User,
-)
-from telethon.utils import get_peer_id
+from telethon.errors.rpcerrorlist import (ChatForwardsRestrictedError,
+                                          MediaEmptyError)
+
 try:
     import cv2
 except ImportError:
@@ -46,10 +28,11 @@ except ImportError:
     WebShot = None
 
 from . import *
+
 LOG_CHANNEL = udB.get_key("LOG_CHANNEL")
 
 
-@ayra_cmd(pattern="copy(?: |$)(.*)")
+@ayra_cmd(pattern="[cC]opy(?: |$)(.*)")
 async def get_restriced_msg(event):
     match = event.pattern_match.group(1).strip()
     if not match:
@@ -77,42 +60,26 @@ async def get_restriced_msg(event):
         thumb = None
         if message.document.thumbs:
             thumb = await message.download_media(thumb=-1)
-        media, _ = await event.client.fast_downloader(
-            message.document,
-            show_progress=False,
-            event=xx,
-            message=f"Downloading {message.file.name}...",
-        )
+        media = await event.client.download_media(message.document)
         await xx.edit("`Uploading...`")
-        uploaded, _ = await event.client.fast_uploader(
-            media.name, event=xx, show_progress=False, to_delete=True
-        )
-        typ = not bool(message.video)
-        await event.reply(
-            message.text,
-            file=uploaded,
-            supports_streaming=typ,
-            force_document=typ,
-            thumb=thumb,
-            attributes=message.document.attributes,
+        uploaded = await event.client.send_file(
+            event.chat_id, file=media, caption="**Done.**"
         )
         await xx.delete()
         if thumb:
             os.remove(thumb)
 
-@ayra_cmd(pattern=r"curi(?: |$)(.*)")
+
+@ayra_cmd(pattern=r"[Cc]uri(?: |$)(.*)")
 async def pencuri(event):
     dia = await event.get_reply_message()
     botlog = LOG_CHANNEL
     xx = await event.eor("`...`", time=2)
     if not dia:
         return
-    anjing = dia.text or None
+    dia.text or None
     pap = await event.client.download_media(dia)
     try:
-        await event.client.send_file(
-             botlog,
-             pap,
-             caption="Pap nya...")
+        await event.client.send_file(botlog, pap, caption="Pap nya...")
     except Exception as e:
         print(e)

@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
 ✘ **Bantuan Untuk Afk**
@@ -66,7 +66,7 @@ from . import *
 
 
 @ayra_cmd(
-    pattern="promote( (.*)|$)",
+    pattern="^[pP][Rr][Oo][Mm][Oo][Tt][Ee]( (.*)|$)",
     admins_only=True,
     manager=True,
     require="add_admins",
@@ -109,7 +109,7 @@ async def prmte(ayra):
 
 
 @ayra_cmd(
-    pattern="demote( (.*)|$)",
+    pattern="^[Dd][Ee][Mm][Oo][Tt][Ee]( (.*)|$)",
     admins_only=True,
     manager=True,
     require="add_admins",
@@ -139,7 +139,7 @@ async def dmote(ayra):
 
 
 @ayra_cmd(
-    pattern="ban( (.*)|$)",
+    pattern="^[bB][aA][nN]( (.*)|$)",
     admins_only=True,
     manager=True,
     require="ban_users",
@@ -169,7 +169,7 @@ async def bban(ayra):
 
 
 @ayra_cmd(
-    pattern="unban( (.*)|$)",
+    pattern="^[uU][Nn][Bb][Aa][Nn]( (.*)|$)",
     admins_only=True,
     manager=True,
     require="ban_users",
@@ -199,7 +199,7 @@ async def uunban(ayra):
 
 
 @ayra_cmd(
-    pattern="kick( (.*)|$)",
+    pattern="^[Kk][Ii][Cc][Kk]( (.*)|$)",
     manager=True,
     require="ban_users",
     fullsudo=False,
@@ -237,7 +237,7 @@ async def kck(ayra):
     await xx.edit(text)
 
 
-@ayra_cmd(pattern="pin$", manager=True, require="pin_messages", fullsudo=True)
+@ayra_cmd(pattern="^[Pp][Ii][Nn]$", manager=True, require="pin_messages", fullsudo=True)
 async def pin(msg):
     if not msg.is_reply:
         return await eor(msg, get_string("pin_1"))
@@ -256,7 +256,7 @@ async def pin(msg):
 
 
 @ayra_cmd(
-    pattern="unpin($| (.*))",
+    pattern="^[Uu][Nn][Pp][Ii][Nn]($| (.*))",
     manager=True,
     require="pin_messages",
     fullsudo=False,
@@ -278,7 +278,9 @@ async def unp(ayra):
     await xx.edit("`Pesan Berhasil Dihapus Dari Sematan !`")
 
 
-@ayra_cmd(pattern="purge( (.*)|$)", manager=True, require="delete_messages")
+@ayra_cmd(
+    pattern="^[Pp][Uu][Rr][Gg][Ee]( (.*)|$)", manager=True, require="delete_messages"
+)
 async def fastpurger(purg):
     match = purg.pattern_match.group(1).strip()
     try:
@@ -313,9 +315,9 @@ async def fastpurger(purg):
 
 
 @ayra_cmd(
-    pattern="purgeme( (.*)|$)",
+    pattern="^[Pp][Uu][Rr][Gg][Ee][Mm][Ee]( (.*)|$)",
 )
-@register(incoming=True, pattern=r"^\.cpurgeme( (.*)|$)", from_users=DEVS)
+@register(incoming=True, pattern=r"^Cpurgeme( (.*)|$)", from_users=DEVS)
 async def fastpurgerme(purg):
     if num := purg.pattern_match.group(1).strip():
         try:
@@ -356,7 +358,7 @@ async def fastpurgerme(purg):
 
 
 @ayra_cmd(
-    pattern="purgeall",
+    pattern="^[Pp][Uu][Rr][Gg][Ee][Aa][Ll][Ll]$",
 )
 async def _(e):
     if not e.is_reply:
@@ -375,7 +377,7 @@ async def _(e):
 
 
 @ayra_cmd(
-    pattern="setgpic( (.*)|$)",
+    pattern="^[Ss][Ee][Tt][Gg][Pp][Ii][Cc]( (.*)|$)",
     admins_only=True,
     manager=True,
     require="change_info",
@@ -417,7 +419,7 @@ async def _(ayra):
 
 
 @ayra_cmd(
-    pattern="delgpic( (.*)|$)",
+    pattern="^[Dd][Ee][Ll][Gg][Pp][Ii][Cc]( (.*)|$)",
     admins_only=True,
     manager=True,
     require="change_info",
@@ -434,7 +436,7 @@ async def _(ayra):
 
 
 @ayra_cmd(
-    pattern="del",
+    pattern="^[Dd][Ee][lL]$",
     manager=True,
 )
 async def delete_it(delme):
@@ -445,7 +447,7 @@ async def delete_it(delme):
     await delme.try_delete()
 
 
-@ayra_cmd(pattern="kickme", fullsudo=False)
+@ayra_cmd(pattern="^[kK][Ii][Cc][Kk][Mm][Ee]$", fullsudo=False)
 async def leave(ayra):
     await ayra.eor(f"`{ayra.client.me.first_name} has left this group, bye!!.`")
     await ayra.client(LeaveChannelRequest(ayra.chat_id))

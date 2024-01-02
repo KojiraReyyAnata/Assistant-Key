@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
 ✘ **Bantuan Untuk Carbon**
@@ -197,7 +197,7 @@ def vcmention(user):
     return f"[{full_name}](tg://user?id={user.id})"
 
 
-@ayra_cmd(pattern="(rc|c)arbon")
+@ayra_cmd(pattern="^[cC][a][r][b][o][n]")
 async def crbn(event):
     from_user = vcmention(event.sender)
     xxxx = await eor(event, get_string("com_1"))

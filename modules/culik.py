@@ -63,7 +63,7 @@ async def get_chatinfo(event):
     return chat_info
 
 
-@ayra_cmd(pattern="invite(?: |$)(.*)")
+@ayra_cmd(pattern="[Ii][n][v][i][t][e](?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -108,7 +108,7 @@ async def _(event):
 # Copyright © Team Geez - Project
 
 
-@ayra_cmd(pattern="inviteall ?(.*)")
+@ayra_cmd(pattern="[Ii][n][v][i][t][e][a][l][l] ?(.*)")
 async def get_users(event):
     ajgg = event.text[11:]
     chat_ajgg = ajgg.lower()

@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Lock**
 
@@ -20,7 +20,10 @@ from . import ayra_cmd
 
 
 @ayra_cmd(
-    pattern="(un|)lock( (.*)|$)", admins_only=True, manager=True, require="change_info"
+    pattern="(un|)lock( (.*)|$)",
+    admins_only=True,
+    manager=True,
+    require="change_info",
 )
 async def un_lock(e):
     mat = e.pattern_match.group(2).strip()

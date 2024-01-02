@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Limit**
 
@@ -17,7 +17,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from . import ayra_cmd
 
 
-@ayra_cmd(pattern="(L|l)imit$")
+@ayra_cmd(pattern="[Ll]imit$")
 async def demn(ayra):
     chat = "@SpamBot"
     msg = await ayra.eor("Memeriksa Jika Anda Terbatas...")

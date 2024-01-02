@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Stikers**
 
@@ -50,7 +50,7 @@ from telethon.utils import get_input_document
 from . import *
 
 
-@ayra_cmd(pattern="(p|P)ackkang")
+@ayra_cmd(pattern="[pP]ackkang")
 async def pack_kangish(_):
     _e = await _.get_reply_message()
     ayra_bot = _.client
@@ -131,7 +131,7 @@ async def pack_kangish(_):
 
 
 @ayra_cmd(
-    pattern="(K|k)ang",
+    pattern="[kK]ang",
 )
 async def hehe(args):
     ayra_bot = args.client
@@ -355,7 +355,7 @@ async def hehe(args):
 
 
 @ayra_cmd(
-    pattern="(R|r)ound$",
+    pattern="[rR]ound$",
 )
 async def ayraround(event):
     ureply = await event.get_reply_message()
@@ -392,7 +392,7 @@ async def ayraround(event):
 
 
 @ayra_cmd(
-    pattern="(D|d)estroy$",
+    pattern="[Dd]estroy$",
 )
 async def ayradestroy(event):
     ayra = await event.get_reply_message()
@@ -432,7 +432,7 @@ async def ayradestroy(event):
 
 
 @ayra_cmd(
-    pattern="(T|t)iny$",
+    pattern="[Tt]iny$",
 )
 async def ayratiny(event):
     reply = await event.get_reply_message()

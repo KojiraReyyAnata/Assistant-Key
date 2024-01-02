@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 
 import os
@@ -30,11 +30,11 @@ except ImportError:
 
 from telethon.utils import resolve_bot_file_id
 
-piic = "https://telegra.ph//file/8675e75ef634fce0b8102.jpg"
+piic = "https://graph.org/file/60408fea8439e6702674d.jpg"
 
 buttons = [
     [
-        Button.url(get_string("bot_4"), "t.me/KeySupport1"),
+        Button.url(get_string("bot_4"), "t.me/skyfand"),
     ]
 ]
 
@@ -52,36 +52,49 @@ BLACK = [1898065191, 1054295664, 1889573907, 2133148961, 2076745088]
 
 # Will move to strings
 alive_txt = """
-◈ Asisstaint Key x Robot​
+◈ ᴀʏʀᴀ ꭙ ᴜꜱᴇʀʙᴏᴛ​
 
   ◈ Version - {}
   ◈ Ayra - {}
   ◈ Telethon - {}
 """
 
-in_alive = "<b>Assistant-Key</b>\n<b>     status :</b> <code>{}</code>{}\n<b>       expired_on :</b> <code>{}</code>\n<b>       dc_id :</b> <code>{}</code>\n<b>       ping_dc :</b> <code>{} ms</code>\n<b>       version :</b> <code>{}</code>\n<b>       assistant :</b> <code>{}</code>\n<b>       uptime :</b> <code>{}</code>"
+in_alive = """
+<b> Naya-Userbot</b>
+<b> status :</b> <code>{}</code>{}
+<b>   expired_on :</b> <code>{}</code>
+<b>   dc_id :</b> <code>{}</code>
+<b>   ping_dc :</b> <code>{} ms</code>
+<b>   version :</b> <code>{}</code>
+<b>   nayalibs :</b> <code>{}</code>
+<b>   uptime :</b> <code>{}</code>"""
 
 absen = [
-    "**Hadir Sayang** 😝",
-    "**Hadir MyBaby MasKeyy** 😍",
-    "**Maaf Sayang** 😁",
-    "**Hadir Sayang** 😘",
-    "**Sayang MasKey** 🤗",
-    "**Keyy Ganteng Banget** 🤗",
-    "**MasskeyyAw** 😋",
-    "**Kiw Kiw Cinta** 😍",
+    "**Hadir Sayang** 😳",
+    "**Hadir Bro Fandy** 😁",
+    "**Maaf ka habis nemenin ka Fandy** 🥺",
+    "**Maaf ka habis disuruh Tuan Fandy** 🥺🙏🏻",
+    "**Hadir Fandy Sayang** 😘",
+    "**Hadir Fandy Akuuuuhhh** ☺️",
+    "**Hadir Fandy brother Aku** 🥰",
+    "**Sokap bet lu Anjing Fandy**",
+    "**Apasi Bawel Fandy** 🥰",
 ]
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^Sayang$")
+@register(incoming=True, from_users=DEVS, pattern=r"^Absen$")
 async def kynanabsen(ganteng):
     await ganteng.reply(choice(absen))
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^Kynan")
+@register(incoming=True, from_users=DEVS, pattern=r"^Kynan$")
 async def naya(naya):
-    await naya.reply("**Kynan Punya Nya Naya**😍")
+    await naya.reply("**Kynan Punya Nya Naya**🤩")
 
+
+@register(incoming=True, from_users=DEVS, pattern=r"^Naya$")
+async def naya(naya):
+    await naya.reply("**Naya Punya Nya Kynan**🤩")
 
 
 @ayra_cmd(pattern=r"^[aA][lL][iI][vV][eE](?: |$)(.*)")
@@ -102,8 +115,8 @@ async def lol(
             entity, Chat
         ):
             groups += 1
-    status1 = "<b>[founder]</b>" if ayra.sender_id in DEVS else "<b>[Member]</b>"
-    remaining_days = None
+    status1 = "<b>[Founder]</b>" if ayra.sender_id in DEVS else "<b>[Owner]</b>"
+    remaining_days = "Limited Edition"
     start = time.time()
     await ayra.client(PingRequest(ping_id=0))
     ping = round((time.time() - start) * 1000)
@@ -117,7 +130,7 @@ async def lol(
             LOGS.exception(er)
         inline = True
     pic = udB.get_key("ALIVE_PIC")
-    if isinstance(pic,list):
+    if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
     if inline:
@@ -185,14 +198,14 @@ async def lol(
     )
 
 
-@ayra_cmd(pattern="ping$", chats=[], type=["official", "assistant"])
+@ayra_cmd(pattern="^[Pp][Ii][Nn][Gg]$", chats=[], type=["official", "assistant"])
 @register(incoming=True, from_users=DEVS, pattern=r"^Cping$")
 async def _(event):
     start = time.time()
     x = await event.eor("Ping !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    await x.edit(f"**Nyepong 😍** - `{end}ms`\n**MASA AKTIF ☺** - `{uptime}`")
+    await x.edit(f"**Pong !!** `{end}ms`\n**Uptime** - `{uptime}`")
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -232,19 +245,19 @@ restart_counter = 0
 
 
 @ayra_cmd(
-    pattern="restart$",
+    pattern="^[rR][Ee][Ss][Tt][Aa][Rr][Tt]$",
     fullsudo=False,
 )
-@register(incoming=True, from_users=DEVS, pattern=r"^Restart$")
+@register(incoming=True, from_users=DEVS, pattern=r"^Update")
 async def restart(e):
-    ok = await e.eor("`Processing...`")
+    await e.eor("`Processing...`")
     await bash("git pull")
     await e.eor("Done.")
     os.execl(sys.executable, sys.executable, "-m", "Ayra")
 
 
 @ayra_cmd(
-    pattern="(s|S)hutdown$",
+    pattern="^[sS][Hh][Uu][Tt][Dd][Oo][Ww][Nn]$",
     fullsudo=False,
 )
 async def shutdownbot(ayra):
@@ -252,7 +265,7 @@ async def shutdownbot(ayra):
 
 
 @ayra_cmd(
-    pattern="(l|L)ogs( (.*)|$)",
+    pattern="^[lL][Oo][Gg][Ss]( (.*)|$)",
     chats=[],
 )
 async def _(event):
@@ -269,13 +282,13 @@ async def _(event):
             code=code,
             backgroundColor=choice(ATRA_COL),
         )
-        await event.reply("**Key Logs.**", file=file)
+        await event.reply("**Naya Logs.**", file=file)
     elif opt == "open":
         with open("ayra.log", "r") as f:
             file = f.read()[-4000:]
         return await event.eor(f"`{file}`")
     else:
-        await def_logs(event,file)
+        await def_logs(event, file)
     await event.try_delete()
 
 
@@ -285,9 +298,9 @@ async def inline_alive(
 ):
     pic = udB.get_key("ALIVE_PIC")
     remaining_days = None
-    status1 = "<b>[PETINGGI]</b>" if event.sender_id in DEVS else "<b>[owner]</b>"
-    remaining_days = True
-    status = "MEMBER KEY"
+    status1 = "<b>[founder]</b>" if event.sender_id in DEVS else "<b>[owner]</b>"
+    remaining_days = None
+    status = "premium"
     start = time.time()
     udB.get_key("LOG_CHANNEL")
     await event.client(PingRequest(ping_id=0))

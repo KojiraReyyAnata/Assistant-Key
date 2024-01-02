@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Group**
 
@@ -36,7 +36,7 @@ from . import LOGS, asst, ayra_cmd, types
 
 
 @ayra_cmd(
-    pattern="getlink( (.*)|$)",
+    pattern="[gG]etlink( (.*)|$)",
     groups_only=True,
     manager=True,
 )
@@ -79,7 +79,7 @@ async def _(e):
                 ),
             )
         except no_admin:
-            return await e.eor("`Saya bukan petinggi kontol`", time=10)
+            return await e.eor("`Saya bukan admin`", time=10)
         link = r.link
     else:
         if isinstance(chat, types.Chat):
@@ -97,7 +97,7 @@ async def _(e):
 
 
 @ayra_cmd(
-    pattern="buat (g|c)(?: |$)(.*)",
+    pattern="[Bb]uat (g|c)(?: |$)(.*)",
 )
 async def _(e):
     type_of_group = e.pattern_match.group(1).strip()
@@ -133,7 +133,7 @@ async def _(e):
             r = await e.client(
                 CreateChannelRequest(
                     title=group_name,
-                    about="Join @KeySupport1",
+                    about="Join @KynanSupport",
                     megagroup=type_of_group != "c",
                 )
             )
@@ -158,7 +158,7 @@ async def _(e):
             await xx.edit(str(ex))
 
 
-@ayra_cmd(pattern="unbanall$", manager=True, admins_only=True, require="ban_users")
+@ayra_cmd(pattern="[Uu]nbanall$", manager=True, admins_only=True, require="ban_users")
 async def _(event):
     xx = await event.eor("`Mengumpulkan akun gak guna.`")
     p = 0
@@ -179,7 +179,7 @@ async def _(event):
 
 
 @ayra_cmd(
-    pattern="rmusers( (.*)|$)",
+    pattern="[Rr]musers( (.*)|$)",
     groups_only=True,
     admins_only=True,
     fullsudo=True,

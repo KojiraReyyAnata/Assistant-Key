@@ -26,7 +26,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from . import *
 
 
-@ayra_cmd(pattern="sosmed(?: |$)(.*)")
+@ayra_cmd(pattern="[Ss][o][s][m][e][d](?: |$)(.*)")
 async def _(event):
     if xxnx := event.pattern_match.group(1):
         d_link = xxnx

@@ -7,10 +7,10 @@
 """
 ✘ **Bantuan Untuk Youtube**
 
-๏ **Perintah:** Video
+๏ **Perintah:** video
 ◉ **Keterangan:** Unduh Video Dari Youtube.
 
-๏ **Perintah:** Song
+๏ **Perintah:** song
 ◉ **Keterangan:** Unduh Lagu Dari Youtube.
 """
 import os
@@ -28,7 +28,7 @@ def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
 
-@ayra_cmd(pattern="(v|V)ideo( (.*)|$)")
+@ayra_cmd(pattern="[vV][i][d][e][o]( (.*)|$)")
 async def yt_video(e):
     infomsg = await e.eor("`Processing...`")
     try:
@@ -82,7 +82,7 @@ async def yt_video(e):
             os.remove(files)
 
 
-@ayra_cmd(pattern="(s|S)ong( (.*)|$)")
+@ayra_cmd(pattern="[sS[o][n][g]( (.*)|$)")
 async def yt_audio(e):
     infomsg = await e.eor("`Processing...`")
     try:

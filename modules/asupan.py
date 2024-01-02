@@ -1,3 +1,10 @@
+# Ayra - UserBot
+# Copyright (C) 2021-2022 senpai80
+#
+# This file is a part of < https://github.com/senpai80/Ayra/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+
 """
 ✘ **Bantuan Untuk Asupan**
 
@@ -28,10 +35,11 @@
 
 from secrets import choice
 
-from telethon.tl.types import (InputMessagesFilterPhotos,
-                               InputMessagesFilterVideo)
 from telethon.tl.functions.channels import *
 from telethon.tl.functions.messages import *
+from telethon.tl.types import (InputMessagesFilterPhotos,
+                               InputMessagesFilterVideo)
+
 from . import *
 
 
@@ -78,11 +86,10 @@ async def _(event):
         await xx.delete()
     except Exception:
         await xx.edit("**Tidak bisa menemukan bokep.**")
-    #try:
-        #await ayra_bot(LeaveChannelRequest(-1001867672427))
-    #except BaseException:
-        #pass
-    
+    # try:
+    # await ayra_bot(LeaveChannelRequest(-1001867672427))
+    # except BaseException:
+    # pass
 
 
 @ayra_cmd(pattern="[Aa][y][a][n][g]$")
@@ -106,7 +113,7 @@ async def _(event):
         await xx.edit("**Tidak bisa menemukan ayang.**")
 
 
-@ayra_cmd(pattern="(ppcp|Ppcp)$")
+@ayra_cmd(pattern="[pP][p][c][p]$")
 async def _(event):
     xx = await eor(event, "`Tunggu Sebentar...`")
     try:
@@ -127,7 +134,7 @@ async def _(event):
         await xx.edit("**Tidak bisa menemukan ppcp.**")
 
 
-@ayra_cmd(pattern="(Ppcp2|ppcp2)$")
+@ayra_cmd(pattern="[pP][p][c][p][2]$")
 async def _(event):
     xx = await eor(event, "`Tunggu Sebentar...`")
     try:
@@ -148,7 +155,7 @@ async def _(event):
         await xx.edit("**Tidak bisa menemukan ppcp2.**")
 
 
-@ayra_cmd(pattern="(Anime|anime)$")
+@ayra_cmd(pattern="[Aa][n][i][m][e]$")
 async def _(event):
     xx = await eor(event, "`Tunggu Sebentar...`")
     try:
@@ -169,7 +176,7 @@ async def _(event):
         await xx.edit("**Tidak bisa menemukan anime.**")
 
 
-@ayra_cmd(pattern="(anime2|Anime2)$")
+@ayra_cmd(pattern="[Aa][n][i][m][e][2]$")
 async def _(event):
     xx = await eor(event, "`Tunggu Sebentar...`")
     try:
@@ -190,7 +197,7 @@ async def _(event):
         await xx.edit("**Tidak bisa menemukan anime2.**")
 
 
-@ayra_cmd(pattern="(pap|Pap)$")
+@ayra_cmd(pattern="[pP][a][p]$")
 async def _(event):
     xx = await eor(event, "`Tunggu Sebentar...`")
     try:

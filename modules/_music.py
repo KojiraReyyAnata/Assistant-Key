@@ -1,3 +1,10 @@
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
+#
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+
 import asyncio
 import os
 from time import time
@@ -60,7 +67,7 @@ class Player:
         try:
             await vcClient(
                 functions.phone.CreateGroupCallRequest(
-                    self._chat, title="🎧 Ayra Music 🎶"
+                    self._chat, title="🎧 Naya Music 🎶"
                 )
             )
         except Exception as e:
@@ -279,6 +286,97 @@ async def get_from_queue(chat_id):
 
 # --------------------------------------------------
 
+from asyncio import get_event_loop
+from functools import partial
+from json import dumps, loads
+from urllib.parse import quote_plus
+
+from requests import get
+
+
+def run_sync(func, *args, **kwargs):
+    return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
+
+
+class YouTubeSearch:
+    def __init__(self, search_terms: str, max_results=None):
+        self.search_terms = search_terms
+        self.max_results = max_results
+        self.videos = self._search()
+
+    def _search(self):
+        encoded_search = quote_plus(self.search_terms)
+        url = f"https://www.youtube.com/results?search_query={encoded_search}"
+        response = get(url).text
+        while "ytInitialData" not in response:
+            response = get(url).text
+        results = self._parse_html(response)
+        if self.max_results is not None and len(results) > self.max_results:
+            return results[: self.max_results]
+        return results
+
+    @staticmethod
+    def _parse_html(response):
+        results = []
+        start = response.index("ytInitialData") + len("ytInitialData") + 3
+        end = response.index("};", start) + 1
+        json_str = response[start:end]
+        data = loads(json_str)
+
+        for contents in data["contents"]["twoColumnSearchResultsRenderer"][
+            "primaryContents"
+        ]["sectionListRenderer"]["contents"]:
+            for video in contents["itemSectionRenderer"]["contents"]:
+                res = {}
+                if "videoRenderer" in video.keys():
+                    video_data = video.get("videoRenderer", {})
+                    res["id"] = video_data.get("videoId", None)
+                    res["title"] = (
+                        video_data.get("title", {})
+                        .get("runs", [[{}]])[0]
+                        .get("text", None)
+                    )
+                    res["duration"] = video_data.get("lengthText", {}).get(
+                        "simpleText", 0
+                    )
+                    res["views"] = video_data.get("viewCountText", {}).get(
+                        "simpleText", 0
+                    )
+                    res["link"] = "https://www.youtube.com" + (
+                        video_data.get("navigationEndpoint", {})
+                        .get("commandMetadata", {})
+                        .get("webCommandMetadata", {})
+                        .get("url", None)
+                    )
+                    if (
+                        res["duration"] != 0
+                        and res["views"] != 0
+                        and sum(
+                            int(x) * 60**i
+                            for i, x in enumerate(
+                                reversed(str(res["duration"]).split(":"))
+                            )
+                        )
+                        < 7200
+                    ):
+                        results.append(res)
+
+            if results:
+                return results
+        return results
+
+    def to_dict(self, clear_cache=True):
+        result = self.videos
+        if clear_cache:
+            self.videos = ""
+        return result
+
+    def to_json(self, clear_cache=True):
+        result = dumps({"videos": self.videos})
+        if clear_cache:
+            self.videos = ""
+        return result
+
 
 async def download(query):
     if query.startswith("https://") and "youtube" not in query.lower():
@@ -286,26 +384,17 @@ async def download(query):
         title = link = query
     else:
         search = VideosSearch(query, limit=1).result()
-        data = search["result"][0]
-        link = data["link"]
-        title = data["title"]
-        duration = data.get("duration") or "♾"
-        thumb = f"https://i.ytimg.com/vi/{data['id']}/hqdefault.jpg"
+        results = YouTubeSearch(query, max_results=1).to_dict()
+        videoid = results[0]["id"]
+        title = results[0]["title"]
+        duration = results[0]["duration"]
+        link = results[0]["link"]
+        thumb = f"https://img.youtube.com/vi/{videoid}/hqdefault.jpg"
     dl = await get_stream_link(link)
     return dl, thumb, title, link, duration
 
 
 async def get_stream_link(ytlink):
-    """
-    info = YoutubeDL({}).extract_info(url=ytlink, download=False)
-    k = ""
-    for x in info["formats"]:
-        h, w = ([x["height"], x["width"]])
-        if h and w:
-            if h <= 720 and w <= 1280:
-                k = x["url"]
-    return k
-    """
     stream = await bash(f'yt-dlp -g -f "best[height<=?720][width<=?1280]" {ytlink}')
     return stream[0]
 
@@ -369,7 +458,7 @@ async def file_download(event, reply, fast_download=False):
     file = reply.file.name or f"{str(time())}.mp4"
     if fast_download:
         dl = await downloader(
-            f"vcbot/downloads/{file}",
+            f"/downloads/{file}",
             reply.media.document,
             event,
             time(),
@@ -383,7 +472,7 @@ async def file_download(event, reply, fast_download=False):
         time_formatter(reply.file.duration * 1000) if reply.file.duration else "🤷‍♂️"
     )
     if reply.document.thumbs:
-        thumb = await reply.download_media("vcbot/downloads/", thumb=-1)
+        thumb = await reply.download_media("/downloads/", thumb=-1)
     return dl, thumb, title, reply.message_link, duration
 
 

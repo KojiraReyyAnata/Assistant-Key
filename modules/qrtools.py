@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk QR Tools**
 
@@ -34,7 +34,7 @@ from telethon.tl.types import MessageMediaPhoto as photu
 from . import ayra_bot, ayra_cmd, check_filename, get_string
 
 
-@ayra_cmd(pattern="(q|Q)rcode( (.*)|$)")
+@ayra_cmd(pattern="[qQ]rcode( (.*)|$)")
 async def cd(e):
     reply = await e.get_reply_message()
     msg = e.pattern_match.group(1).strip()
@@ -67,7 +67,7 @@ async def cd(e):
         os.remove(cimg)
 
 
-@ayra_cmd(pattern="(A|a)ddqr( (.*)|$)")
+@ayra_cmd(pattern="[Aa]ddqr( (.*)|$)")
 async def qrwater(e):
     msg = e.pattern_match.group(1).strip()
     r = await e.get_reply_message()
@@ -91,7 +91,7 @@ async def qrwater(e):
     os.remove(dl)
 
 
-@ayra_cmd(pattern="(q|Q)rdecode$")
+@ayra_cmd(pattern="[qQ]rdecode$")
 async def decod(e):
     r = await e.get_reply_message()
     if not (r and r.media):

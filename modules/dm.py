@@ -4,6 +4,13 @@
 # This file is a part of < https://github.com/senpai80/Ayra/ >
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
+#
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk DM**
 
@@ -44,7 +51,7 @@ async def dm(e):
         await e.eor("Silakan ketik `help dm` untuk bantuan.", time=5)
 
 
-@ayra_cmd(pattern="send( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Ss]end( (.*)|$)", fullsudo=False)
 async def _(e):
     message = e.pattern_match.group(1).strip()
     if not e.reply_to_msg_id:

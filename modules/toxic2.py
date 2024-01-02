@@ -1,4 +1,9 @@
-# @riizzvbss
+# Ayra - UserBot
+# Copyright (C) 2021-2022 senpai80
+#
+# This file is a part of < https://github.com/senpai80/Ayra/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Toxic 2**
 
@@ -23,7 +28,7 @@ from time import sleep
 from . import ayra_cmd
 
 
-@ayra_cmd(outgoing=True, pattern=r"^(n|N)gentot(?: |$)(.*)")
+@ayra_cmd(outgoing=True, pattern=r"^[nN][g][e][n][t][o][t]$")
 async def _(event):
     await event.eor("**WOYY NGENTOD!!**")
     sleep(1)
@@ -49,7 +54,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayra_cmd(outgoing=True, pattern=r"^[gG][oO][bB][lL[oO][kK](g|G)blk(?: |$)(.*)")
+@ayra_cmd(outgoing=True, pattern=r"^[gG][oO][bB][lL[oO][kK]$")
 async def _(event):
     await event.eor("**WOYY GOBLOK!!**")
     sleep(1)
@@ -75,7 +80,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayra_cmd(outgoing=True, pattern=r"^(n|N)gatain(?: |$)(.*)")
+@ayra_cmd(outgoing=True, pattern=r"^[nN][g][a][t][a][i][n]$")
 async def _(event):
     await event.eor("**BABI!!**")
     sleep(1)
@@ -101,7 +106,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayra_cmd(outgoing=True, pattern=r"^(y|Y)atim(?: |$)(.*)")
+@ayra_cmd(outgoing=True, pattern=r"^[yY][a][t][i][m]$")
 async def _(event):
     await event.eor("`Hai Anak Kontol 🙈, Jangan Lupa Makan Yaa`")
     sleep(1)
@@ -127,7 +132,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayra_cmd(outgoing=True, pattern=r"^[kK][nN][tT][lL](?: |$)(.*)")
+@ayra_cmd(outgoing=True, pattern=r"^[kK][nN][tT][lL]$")
 async def _(event):
     await event.eor("**KONTOLL**")
     sleep(1.5)

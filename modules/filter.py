@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 """
 ✘ **Bantuan Untuk Filter**
@@ -31,7 +31,7 @@ from . import ayra_bot, ayra_cmd, events, get_string, mediainfo, udB
 from ._inline import something
 
 
-@ayra_cmd(pattern="addfil( (.*)|$)")
+@ayra_cmd(pattern="[Aa]ddfil( (.*)|$)")
 async def af(e):
     wrd = (e.pattern_match.group(1).strip()).lower()
     wt = await e.get_reply_message()
@@ -70,7 +70,7 @@ async def af(e):
     ayra_bot.add_handler(filter_func, events.NewMessage())
 
 
-@ayra_cmd(pattern="delfil( (.*)|$)")
+@ayra_cmd(pattern="[Dd]elfil( (.*)|$)")
 async def rf(e):
     wrd = (e.pattern_match.group(1).strip()).lower()
     chat = e.chat_id
@@ -80,7 +80,7 @@ async def rf(e):
     await e.eor(get_string("flr_5").format(wrd))
 
 
-@ayra_cmd(pattern="filters")
+@ayra_cmd(pattern="[Ff]ilters")
 async def lsnote(e):
     if x := list_filter(e.chat_id):
         sd = "Filter Ditemukan Dalam Obrolan Ini Adalah\n\n"

@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Sudo**
 
@@ -23,7 +23,7 @@ from telethon.tl.types import User
 from . import ayra_bot, ayra_cmd, get_string, inline_mention, udB
 
 
-@ayra_cmd(pattern="addsudo( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Aa][d][d][s][u][d][o]( (.*)|$)", fullsudo=False)
 async def _(ayra):
     inputs = ayra.pattern_match.group(1).strip()
     if ayra.reply_to_msg_id:
@@ -63,7 +63,7 @@ async def _(ayra):
     await ayra.eor(mmm, time=5)
 
 
-@ayra_cmd(pattern="delsudo( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Dd][e][l][s][u][d][o]( (.*)|$)", fullsudo=False)
 async def _(ayra):
     inputs = ayra.pattern_match.group(1).strip()
     if ayra.reply_to_msg_id:
@@ -99,7 +99,7 @@ async def _(ayra):
 
 
 @ayra_cmd(
-    pattern="listsudo$",
+    pattern="[Ll][i[[s][t][s][u][d][o]$",
 )
 async def _(ayra):
     sudos = sudoers()

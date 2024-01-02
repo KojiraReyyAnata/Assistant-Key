@@ -1,3 +1,10 @@
+# Ayra - UserBot
+# Copyright (C) 2021-2022 senpai80
+#
+# This file is a part of < https://github.com/senpai80/Ayra/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+
 """
 ✘ **Bantuan Untuk Adzan**
 
@@ -11,7 +18,7 @@ import requests
 from . import *
 
 
-@ayra_cmd(pattern="adzan(?:\\s|$)([\\s\\S]*)")
+@ayra_cmd(pattern="^[Aa][Dd][Zz][Aa][Nn](?:\\s|$)([\\s\\S]*)")
 async def cek(event):
     LOKASI = event.pattern_match.group(1)
     if not LOKASI:

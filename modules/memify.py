@@ -21,7 +21,7 @@ from PIL import Image, ImageDraw, ImageFont
 from . import *
 
 
-@ayra_cmd(pattern=r"mmf ?(.*)")
+@ayra_cmd(pattern=r"[Mm]mf ?(.*)")
 async def handler(event):
     if event.fwd_from:
         return

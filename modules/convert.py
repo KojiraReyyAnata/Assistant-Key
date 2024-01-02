@@ -5,6 +5,13 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
+#
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+
 """
 ✘ **Bantuan Untuk DM**
 
@@ -47,6 +54,7 @@ import os
 import random
 import time
 
+from Ayra import *
 from PIL import Image
 
 try:
@@ -106,7 +114,7 @@ async def uconverter(event):
 """
 
 
-@ayra_cmd(pattern="convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
+@ayra_cmd(pattern="[Cc][o][n][v][e][r][t] ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
 async def cevir(event):
     ajg = event.pattern_match.group(1)
     try:
@@ -214,7 +222,7 @@ async def cevir(event):
         return
 
 
-@ayra_cmd(pattern="toaudio$")
+@ayra_cmd(pattern="[tT][o][a][u][d][i][o]$")
 async def makevoice(event):
     if not event.reply_to:
         return await eod(event, "**Mohon Balas Ke Audio atau video**")
@@ -236,7 +244,7 @@ async def makevoice(event):
     os.remove("ayra.opus")
 
 
-@ayra_cmd(pattern="(G|g)litch$")
+@ayra_cmd(pattern="[Gg][l][i][t][c][h]$")
 async def _(e):
     try:
         import glitch_me  # ignore :pylint
@@ -263,7 +271,7 @@ async def _(e):
     os.remove("ayra.gif")
 
 
-@ayra_cmd(pattern="(bw|Bw|Invert|invert)$")
+@ayra_cmd(pattern="[bB][w][i][n][v][e][r][t]$")
 async def igif(e):
     match = e.pattern_match.group(1).strip()
     a = await e.get_reply_message()
@@ -288,7 +296,7 @@ async def igif(e):
         LOGS.info(er)
 
 
-@ayra_cmd(pattern="(R|r)vgif$")
+@ayra_cmd(pattern="[rR][v][g][i][f]$")
 async def reverse_gif(event):
     a = await event.get_reply_message()
     if not (a and a.media) and "video" not in mediainfo(a.media):
@@ -302,7 +310,7 @@ async def reverse_gif(event):
     os.remove("reversed.mp4")
 
 
-@ayra_cmd(pattern="(Gif|gif)( (.*)|$)")
+@ayra_cmd(pattern="[gG][i][f]( (.*)|$)")
 async def gifs(ayra):
     get = ayra.pattern_match.group(1).strip()
     xx = random.randint(0, 5)
@@ -328,7 +336,7 @@ async def gifs(ayra):
     await m.delete()
 
 
-@ayra_cmd(pattern="(V|v)tog$")
+@ayra_cmd(pattern="[vV][t][o][g]$")
 async def vtogif(e):
     a = await e.get_reply_message()
     if not (a and a.media):
@@ -360,7 +368,7 @@ async def vtogif(e):
     await xx.delete()
 
 
-@ayra_cmd(pattern="(size|Size)")
+@ayra_cmd(pattern="[Ss][i][z][e]$")
 async def size(e):
     r = await e.get_reply_message()
     if not (r and r.media):
@@ -376,7 +384,7 @@ async def size(e):
     os.remove(img)
 
 
-@ayra_cmd(pattern="(resize|Resize)( (.*)|$)")
+@ayra_cmd(pattern="[Rr][e][s][i][z][e]( (.*)|$)")
 async def size(e):
     r = await e.get_reply_message()
     if not (r and r.media):

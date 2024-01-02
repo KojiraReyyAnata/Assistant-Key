@@ -28,7 +28,7 @@ except ImportError:
 from . import *
 
 
-@ayra_cmd(pattern="pntrst(?: |$)(.*)")
+@ayra_cmd(pattern="[pP]ntrst(?: |$)(.*)")
 async def pntr(event):
     if xxnx := event.pattern_match.group(1):
         link = xxnx

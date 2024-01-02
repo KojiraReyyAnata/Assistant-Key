@@ -44,7 +44,7 @@ from time import sleep
 from . import *
 
 
-@ayra_cmd(pattern="bulan$")
+@ayra_cmd(pattern="^[Bb][u][l][a][n]$")
 async def _(event):
     event = await eor(event, "bulan.")
     animation_interval = 0.2
@@ -89,7 +89,7 @@ async def _(event):
         await event.edit(animation_chars[i % 32])
 
 
-@ayra_cmd(pattern="sayang$")
+@ayra_cmd(pattern="^[Ss][a][y][a][n][g]$")
 async def _(event):
     e = await eor(event, "I LOVEE YOUUU 💕")
     await e.edit("💝💘💓💗")
@@ -117,12 +117,12 @@ async def _(event):
     await e.edit("SAYANG KAMU💞")
 
 
-@ayra_cmd(pattern=r"dino(?: |$)(.*)")
+@ayra_cmd(pattern=r"^[Dd][i][n][o]$")
 async def _(event):
     typew = await eor(event, "`DIN DINNN.....`")
-    #sleep(1)
+    # sleep(1)
     await typew.edit("`DINOOOOSAURUSSSSS!!`")
-    #sleep(1)
+    # sleep(1)
     await typew.edit("`🏃                        🦖`")
     await typew.edit("`🏃                       🦖`")
     await typew.edit("`🏃                      🦖`")
@@ -174,7 +174,7 @@ async def _(event):
     await typew.edit("`-TAMAT-`")
 
 
-@ayra_cmd(pattern="gabut$")
+@ayra_cmd(pattern="^[gG][a][b][u][t]$")
 async def _(event):
     e = await eor(event, "`PERNAAHHHHH KAHHH KAUUU MENGIRA`")
     await e.edit("`SEPEEERTIIIII APAAAA BENTUKKKKKKK CINTAAAA`")
@@ -430,7 +430,7 @@ async def _(event):
     await e.edit("`GABUT`")
 
 
-@ayra_cmd(pattern=r"terkadang(?: |$)(.*)")
+@ayra_cmd(pattern=r"^[Tt][e][r][k][a][d][a][n][g]$")
 async def _(event):
     typew = await eor(event, "`Terkadang`")
     sleep(1)
@@ -448,39 +448,34 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayra_cmd(pattern=r"mf$")
+@ayra_cmd(pattern=r"^[Mm][f]$")
 async def _(event):
     await eor(event, "`mf g dl` **ミ(ノ;_ _)ノ=3** ")
 
 
-@ayra_cmd(pattern=r"(.*)")
+@ayra_cmd(pattern=r"^[Cc][i][n][t][a]$")
 async def _(event):
-    if event.fwd_from:
-        return
-    input_str = event.pattern_match.group(1)
-    if input_str == "cinta":
-        await event.edit(input_str)
-        animation_chars = [
-            "`Connecting Ke Server Cinta`",
-            "`Mencari Target Cinta`",
-            "`Mengirim Cintaku.. 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Mengirim Cintaku.. 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Mengirim Cintaku.. 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Mengirim Cintaku.. 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Mengirim Cintaku.. 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Mengirim Cintaku.. 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
-            "`Mengirim Cintaku.. 84%\n█████████████████████▒▒▒▒ `",
-            "`Mengirim Cintaku.. 100%\n█████████CINTAKU███████████ `",
-            "`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`",
-        ]
-        animation_interval = 2
-        animation_ttl = range(11)
-        for i in animation_ttl:
-            await asyncio.sleep(animation_interval)
-            await event.edit(animation_chars[i % 11])
+    animation_chars = [
+        "`Connecting Ke Server Cinta`",
+        "`Mencari Target Cinta`",
+        "`Mengirim Cintaku.. 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+        "`Mengirim Cintaku.. 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+        "`Mengirim Cintaku.. 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+        "`Mengirim Cintaku.. 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+        "`Mengirim Cintaku.. 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+        "`Mengirim Cintaku.. 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
+        "`Mengirim Cintaku.. 84%\n█████████████████████▒▒▒▒ `",
+        "`Mengirim Cintaku.. 100%\n█████████CINTAKU███████████ `",
+        "`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`",
+    ]
+    animation_interval = 2
+    animation_ttl = range(11)
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 11])
 
 
-@ayra_cmd(pattern=r"gombal(?: |$)(.*)")
+@ayra_cmd(pattern=r"^[Gg][o][m][b][a][l]$")
 async def _(event):
     typew = await eor(event, "`Hai, I LOVE YOU 💞`")
     sleep(1)
@@ -506,7 +501,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayra_cmd(pattern="helikopter(?: |$)(.*)")
+@ayra_cmd(pattern="^[Hh][e][l][i][k][o][p][t][e][r]$")
 async def _(event):
     await eor(
         event,
@@ -529,7 +524,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="tembak(?: |$)(.*)")
+@ayra_cmd(pattern="^[Tt][e][m][b][a][k]$")
 async def _(event):
     await eor(
         event,
@@ -537,7 +532,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="bundir(?: |$)(.*)")
+@ayra_cmd(pattern="^[bB][u][n][d][i][r]$")
 async def _(event):
     await eor(
         event,
@@ -558,7 +553,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="awk(?: |$)(.*)")
+@ayra_cmd(pattern="^[Aa][w][k]$")
 async def _(event):
     await eor(
         event,
@@ -570,7 +565,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="ular(?: |$)(.*)")
+@ayra_cmd(pattern="^[Uu][l][a][r]$")
 async def _(event):
     await eor(
         event,
@@ -662,7 +657,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="y(?: |$)(.*)")
+@ayra_cmd(pattern="^[yY]$")
 async def _(event):
     await eor(
         event,
@@ -682,7 +677,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="tank(?: |$)(.*)")
+@ayra_cmd(pattern="^[Tt][a][n][k]$")
 async def _(event):
     await eor(
         event,
@@ -693,7 +688,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="babi(?: |$)(.*)")
+@ayra_cmd(pattern="^[Bb][a][b][i]$")
 async def _(event):
     await eor(
         event,
@@ -708,7 +703,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern="ajg(?: |$)(.*)")
+@ayra_cmd(pattern="^[Aa][j][g]$")
 async def _(event):
     await eor(
         event,
@@ -721,7 +716,7 @@ async def _(event):
     )
 
 
-@ayra_cmd(pattern=r"bernyanyi(?: |$)(.*)")
+@ayra_cmd(pattern=r"^[Bb][e][r][n][y][a][n][y][i]$")
 async def _(event):
     typew = await eor(event, "**Ganteng Doang Gak Bernyanyi (ง˙o˙)ว**")
     sleep(2)
@@ -756,7 +751,7 @@ async def _(event):
     await typew.edit("**♪┗ ( ･o･) ┓♪┏ (・o･) ┛♪**")
 
 
-@ayra_cmd(pattern="santet(?: |$)(.*)")
+@ayra_cmd(pattern="^[Ss][a][n][t][e][t]$")
 async def _(event):
     typew = await eor(event, "`Mengaktifkan Perintah Santet Online....`")
     sleep(2)

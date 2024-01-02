@@ -12,10 +12,13 @@ from logging import Logger
 
 from telethon import TelegramClient
 from telethon import utils as telethon_utils
-from telethon.errors import (AccessTokenExpiredError, AccessTokenInvalidError,
-                             ApiIdInvalidError, AuthKeyDuplicatedError)
+from telethon.errors import (
+    AccessTokenExpiredError,
+    AccessTokenInvalidError,
+    ApiIdInvalidError,
+    AuthKeyDuplicatedError,
+)
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
-
 from ..configs import Var
 from . import *
 

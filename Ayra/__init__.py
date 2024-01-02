@@ -12,9 +12,11 @@ from .version import __version__
 
 run_as_module = False
 
+
 class AyConfig:
     lang = "id"
     thumb = "resources/extras/logo.jpg"
+
 
 if sys.argv[0] == "-m":
     run_as_module = True
@@ -26,7 +28,8 @@ if sys.argv[0] == "-m":
     from .startup._database import AyraDB
     from .startup.BaseClient import AyraClient
     from .startup.connections import validate_session, vc_connection
-    from .startup.funcs import _version_changes, autobot, enable_inline, update_envs
+    from .startup.funcs import (_version_changes, autobot, enable_inline,
+                                update_envs)
     from .version import ayra_version
 
     if not os.path.exists("./modules"):
@@ -66,7 +69,7 @@ if sys.argv[0] == "-m":
             validate_session(Var.SESSION, LOGS),
             udB=udB,
             app_version=ayra_version,
-            device_model="Assistant-Key",
+            device_model="Fandy-Bejir",
         )
         ayra_bot.run_in_loop(autobot())
 
@@ -96,10 +99,10 @@ if sys.argv[0] == "-m":
     INLINE_PM = udB.set_key("INLINE_PM", "True")
     PMLOG = udB.set_key("PMLOG", "True")
 else:
-    print("Assistant-Key © @Pusingeaak")
+    print("© Fandy-Bejir ")
 
     from logging import getLogger
 
-    LOGS = getLogger("Assistant-Key")
+    LOGS = getLogger("Fandy-Bejir")
 
     ayra_bot = asst = udB = vcClient = None

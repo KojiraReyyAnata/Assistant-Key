@@ -5,6 +5,7 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
 
+
 from . import *
 
 
@@ -13,16 +14,9 @@ def main():
     import sys
     import time
 
-    from .fns.helper import time_formatter, updater, bash
-    from .startup.funcs import (
-        WasItRestart,
-        autopilot,
-        customize,
-        plug,
-        ready,
-        startup_stuff,
-        ajg,
-    )
+    from .fns.helper import bash, time_formatter, updater
+    from .startup.funcs import (WasItRestart, ajg, autopilot, customize, plug,
+                                ready, startup_stuff)
     from .startup.loader import load_other_plugins
 
     # Option to Auto Update On Restarts..
@@ -36,7 +30,7 @@ def main():
         os.execl(sys.executable, "python3", "-m", "Ayra")
 
     ayra_bot.run_in_loop(startup_stuff())
-    
+
     ayra_bot.run_in_loop(ajg())
 
     ayra_bot.me.phone = None
@@ -65,7 +59,7 @@ def main():
 
     suc_msg = """
   -------------------------------------------------------
-                      Assistant Key
+                      Fandy Bejir
   -------------------------------------------------------
     """
 
@@ -92,7 +86,7 @@ def main():
         pass
 
     LOGS.info(
-        f"Took {time_formatter((time.time() - start_time)*1000)} to start Assistant-Key"
+        f"Took {time_formatter((time.time() - start_time)*1000)} to start Fandy Bejir"
     )
     LOGS.info(suc_msg)
 

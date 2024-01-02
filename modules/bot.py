@@ -30,11 +30,11 @@ except ImportError:
 
 from telethon.utils import resolve_bot_file_id
 
-piic = "https://graph.org/file/60408fea8439e6702674d.jpg"
+piic = "https://graph.org/file/3a496422a06187b24aae3.jpg"
 
 buttons = [
     [
-        Button.url(get_string("bot_4"), "t.me/skyfand"),
+        Button.url(get_string("bot_4"), "t.me/keysupport1"),
     ]
 ]
 
@@ -71,14 +71,14 @@ in_alive = """
 
 absen = [
     "**Hadir Sayang** 😳",
-    "**Hadir Bro Fandy** 😁",
-    "**Maaf ka habis nemenin ka Fandy** 🥺",
-    "**Maaf ka habis disuruh Tuan Fandy** 🥺🙏🏻",
-    "**Hadir Fandy Sayang** 😘",
-    "**Hadir Fandy Akuuuuhhh** ☺️",
-    "**Hadir Fandy brother Aku** 🥰",
-    "**Sokap bet lu Anjing Fandy**",
-    "**Apasi Bawel Fandy** 🥰",
+    "**Hadir Sayanggku** 😍",
+    "**Key Ayo Nikah** 🥺",
+    "**Key Plis Jangan Tinggalin Aku** 🥺🙏🏻",
+    "**kyyyaaa keyy Sayang** 😘",
+    "**Hadir Mas Key Akuuuuhhh** ☺️",
+    "**Hadir My Boy Friend** 🥰",
+    "**Mau Peluk Mass Key** 🤗",
+    "**Apasi Bawel Keyy** 🥰",
 ]
 
 
@@ -115,7 +115,7 @@ async def lol(
             entity, Chat
         ):
             groups += 1
-    status1 = "<b>[Founder]</b>" if ayra.sender_id in DEVS else "<b>[Owner]</b>"
+    status1 = "<b>[KEY AGL]</b>" if ayra.sender_id in DEVS else "<b>[Owner]</b>"
     remaining_days = "Limited Edition"
     start = time.time()
     await ayra.client(PingRequest(ping_id=0))
@@ -298,7 +298,7 @@ async def inline_alive(
 ):
     pic = udB.get_key("ALIVE_PIC")
     remaining_days = None
-    status1 = "<b>[founder]</b>" if event.sender_id in DEVS else "<b>[owner]</b>"
+    status1 = "<b>[KEY AGL]</b>" if event.sender_id in DEVS else "<b>[owner]</b>"
     remaining_days = None
     status = "premium"
     start = time.time()

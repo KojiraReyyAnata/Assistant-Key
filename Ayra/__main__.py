@@ -59,7 +59,7 @@ def main():
 
     suc_msg = """
   -------------------------------------------------------
-                      Fandy Bejir
+                      Assistant Key
   -------------------------------------------------------
     """
 
@@ -86,7 +86,7 @@ def main():
         pass
 
     LOGS.info(
-        f"Took {time_formatter((time.time() - start_time)*1000)} to start Fandy Bejir"
+        f"Took {time_formatter((time.time() - start_time)*1000)} to start Assistant Key"
     )
     LOGS.info(suc_msg)
 

@@ -11,14 +11,14 @@ from . import LOG_CHANNEL, Button, asst, ayra_cmd, eor, get_string
 REPOMSG = """
 ◈ **ᴀʏʀᴀ ꭙ ᴜꜱᴇʀʙᴏᴛ​** ◈\n
 ◈ Repo - [Click Here](https://github.com/naya1503/Naya-Userbot)
-◈ Support - @kynansupport
+◈ Support - @keysupport1
 """
 
 RP_BUTTONS = [
     [
         Button.url(get_string("bot_3"), "https://github.com/naya1503/Naya-Userbot"),
     ],
-    [Button.url("Support Group", "t.me/kynansupport")],
+    [Button.url("Support Group", "t.me/keysupport1")],
 ]
 
 AYSTRING = """🎇 **Thanks for Deploying Naya-Userbot**

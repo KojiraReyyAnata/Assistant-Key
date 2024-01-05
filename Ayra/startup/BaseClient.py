@@ -21,7 +21,6 @@ from telethon.errors import (
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from ..configs import Var
 from . import *
-from Ayra import *
 
 
 class AyraClient(TelegramClient):
@@ -74,11 +73,11 @@ class AyraClient(TelegramClient):
             self.logger.critical("API ID and API_HASH combination does not match!")
 
             sys.exit()
-        except (AuthKeyDuplicatedError, EOFError):
+        except (AuthKeyDuplicatedError, EOFError) as er:
             if self._handle_error:
                 self.logger.critical("String session expired. Create new!")
                 return sys.exit()
-            self.logger.critical("String session expired.")
+            raise er
         except (AccessTokenExpiredError, AccessTokenInvalidError):
             # AccessTokenError can only occur for Bot account
             # And at Early Process, Its saved in DB.
